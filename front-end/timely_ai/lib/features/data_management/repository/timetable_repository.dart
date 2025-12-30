@@ -16,7 +16,7 @@ class TimetableRepository {
   Future<Map<String, dynamic>> generateTimetable() async {
     // The server URL for your local Python backend.
     // 10.0.2.2 is a special IP for the Android emulator to access the host machine (localhost).
-    const String serverUrl = 'http://10.211.0.121:5000/generate-timetable';
+    const String serverUrl = 'http://10.101.73.121:5000/generate-timetable';
 
     // Get the current state (all our lists of data) from the HomeController.
     final homeState = _ref.read(homeControllerProvider);

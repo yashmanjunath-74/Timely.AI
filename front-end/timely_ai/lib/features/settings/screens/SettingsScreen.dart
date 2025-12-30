@@ -181,7 +181,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 ),
                 Switch(
                   value: _fairWorkload,
-                  activeColor: const Color(0xFF7F00FF), // Neon Violet
+                  activeThumbColor: const Color(0xFF7F00FF), // Neon Violet
                   activeTrackColor: const Color(0xFF7F00FF).withOpacity(0.5),
                   inactiveThumbColor: Colors.white,
                   inactiveTrackColor: Colors.white24,
@@ -251,7 +251,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       });
                     },
                   );
-                }).toList(),
+                }),
               ],
             ),
           ),
@@ -284,7 +284,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 ),
                 Switch(
                   value: _guaranteedLunch,
-                  activeColor: const Color(0xFFFF4E50), // Neon Red
+                  activeThumbColor: const Color(0xFFFF4E50), // Neon Red
                   activeTrackColor: const Color(0xFFFF4E50).withOpacity(0.5),
                   inactiveThumbColor: Colors.white,
                   inactiveTrackColor: Colors.white24,

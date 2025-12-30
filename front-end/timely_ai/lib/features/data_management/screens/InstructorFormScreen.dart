@@ -28,16 +28,13 @@ class _InstructorFormScreenState extends State<InstructorFormScreen> {
   ];
 
   final List<String> _timeslots = [
-    '08:00 AM',
-    '09:00 AM',
-    '10:00 AM',
+    '08:30 AM',
+    '09:30 AM',
     '11:00 AM',
     '12:00 PM',
-    '01:00 PM',
     '02:00 PM',
     '03:00 PM',
     '04:00 PM',
-    '05:00 PM',
   ];
 
   @override
@@ -76,6 +73,14 @@ class _InstructorFormScreenState extends State<InstructorFormScreen> {
       _availability = {
         for (var day in _days) day: List.filled(_timeslots.length, 1),
       };
+
+      // Set Saturday afternoon to unavailable (0)
+      // Indices 4, 5, 6 correspond to 02:00 PM, 03:00 PM, 04:00 PM
+      if (_availability.containsKey('Saturday')) {
+        for (int i = 4; i < _timeslots.length; i++) {
+          _availability['Saturday']![i] = 0;
+        }
+      }
     }
   }
 

@@ -1,9 +1,35 @@
+from datetime import datetime
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from ortools.sat.python import cp_model
 
 app = Flask(__name__)
 CORS(app)
+
+def parse_timeslot(ts_str):
+    """
+    Parses a timeslot string like "08:30 AM - 09:30 AM"
+    Returns (start_minutes, end_minutes) from midnight.
+    """
+    try:
+        parts = ts_str.split('-')
+        if len(parts) != 2:
+            return 0, 0
+        
+        start_str = parts[0].strip()
+        end_str = parts[1].strip()
+        
+        fmt = "%I:%M %p"
+        start_dt = datetime.strptime(start_str, fmt)
+        end_dt = datetime.strptime(end_str, fmt)
+        
+        start_min = start_dt.hour * 60 + start_dt.minute
+        end_min = end_dt.hour * 60 + end_dt.minute
+        
+        return start_min, end_min
+    except Exception as e:
+        print(f"Error parsing timeslot '{ts_str}': {e}")
+        return 0, 0
 
 @app.route('/generate-timetable', methods=['POST'])
 def generate_timetable():
@@ -31,6 +57,19 @@ def generate_timetable():
         all_student_groups = {sg['id']: sg for sg in student_groups}
         all_days = days
         all_timeslots = timeslots
+        
+        # Parse timeslots and calculate gaps
+        # ts_parsed: list of (start, end)
+        ts_parsed = [parse_timeslot(ts) for ts in all_timeslots]
+        
+        # Calculate gaps between adjacent slots i and i+1
+        # gaps[i] = start[i+1] - end[i]
+        ts_gaps = []
+        for i in range(len(ts_parsed) - 1):
+            end_current = ts_parsed[i][1]
+            start_next = ts_parsed[i+1][0]
+            gap = start_next - end_current
+            ts_gaps.append(gap)
 
         # Create unique tasks for each required session (lecture or lab)
         # REFACTOR: Tasks are now specific to a Student Group.
@@ -74,11 +113,116 @@ def generate_timetable():
         for task_id, task_info in tasks.items():
             course_id = task_info['course_id']
             course = all_courses[course_id]
-            for inst_id in course.get('qualifiedInstructors', []):
+            
+            # Check for group preference
+            sg_id = task_info['group_id']
+            group = all_student_groups.get(sg_id)
+            preferred_inst_id = None
+            if group:
+                preferences = group.get('instructorPreferences', {})
+                preferred_inst_id = preferences.get(course_id)
+
+            qualified_instructors = course.get('qualifiedInstructors', [])
+            
+            # If preference exists, restrict to that instructor (if qualified, or just trust preference?)
+            # Let's assume preference must be in qualified list, or just use it.
+            # The previous logic added a constraint, but here we can just optimize variable creation.
+            target_instructors = qualified_instructors
+            if preferred_inst_id:
+                # If preferred instructor is valid, only create vars for them
+                # If not in qualified list, maybe we should still allow? Let's assume valid.
+                target_instructors = [preferred_inst_id]
+
+            for inst_id in target_instructors:
                 for room_id in all_rooms:
                     for day in all_days:
                         for timeslot in all_timeslots:
                             assign[(task_id, inst_id, room_id, day, timeslot)] = model.NewBoolVar(f'assign_{task_id}_{inst_id}_{room_id}_{day}_{timeslot}')
+
+        # --- INSTRUCTOR AVAILABILITY CONSTRAINT ---
+        # Enforce that instructors are not assigned to slots where they are unavailable.
+        # availability is a map: { "Monday": [1, 1, 0, ...], ... }
+        # The index in the list corresponds to the index in all_timeslots.
+        
+        # Map timeslots to indices for easier lookup
+        ts_to_index = {ts: i for i, ts in enumerate(all_timeslots)}
+        
+        for inst_id, instructor in all_instructors.items():
+            availability = instructor.get('availability', {})
+            if not availability:
+                continue
+                
+            for day, slots in availability.items():
+                if day not in all_days:
+                    continue
+                
+                # Iterate through the availability slots
+                # Note: The length of slots should match all_timeslots. 
+                # If mismatch, we use the minimum length to avoid errors, or assume 1 (available) if missing.
+                for t_idx, is_available in enumerate(slots):
+                    if t_idx >= len(all_timeslots):
+                        break
+                        
+                    if is_available == 0: # Unavailable
+                        timeslot = all_timeslots[t_idx]
+                        
+                        # Forbid this instructor from being assigned to ANY task at this time
+                        for task_id in tasks:
+                            for room_id in all_rooms:
+                                if (task_id, inst_id, room_id, day, timeslot) in assign:
+                                    model.Add(assign[(task_id, inst_id, room_id, day, timeslot)] == 0)
+
+        # --- STUDENT GROUP AVAILABILITY CONSTRAINT ---
+        # Enforce that student groups are not assigned to classes when they are unavailable.
+        for sg_id, group in all_student_groups.items():
+            availability = group.get('availability', {})
+            if not availability:
+                continue
+
+            # Identify all tasks belonging to this group
+            group_tasks = [tid for tid, t in tasks.items() if t['group_id'] == sg_id]
+
+            for day, slots in availability.items():
+                if day not in all_days:
+                    continue
+
+                for t_idx, is_available in enumerate(slots):
+                    if t_idx >= len(all_timeslots):
+                        break
+                    
+                    if is_available == 0: # Unavailable
+                        timeslot = all_timeslots[t_idx]
+
+                        # Forbid ANY task for this group to be scheduled at this time
+                        for task_id in group_tasks:
+                            for inst_id in all_instructors:
+                                for room_id in all_rooms:
+                                    if (task_id, inst_id, room_id, day, timeslot) in assign:
+                                        model.Add(assign[(task_id, inst_id, room_id, day, timeslot)] == 0)
+
+        # --- ROOM AVAILABILITY CONSTRAINT ---
+        # Enforce that rooms are not assigned to classes when they are unavailable.
+        for r_id, room in all_rooms.items():
+            availability = room.get('availability', {})
+            if not availability:
+                continue
+
+            for day, slots in availability.items():
+                if day not in all_days:
+                    continue
+
+                for t_idx, is_available in enumerate(slots):
+                    if t_idx >= len(all_timeslots):
+                        break
+                    
+                    if is_available == 0: # Unavailable
+                        timeslot = all_timeslots[t_idx]
+
+                        # Forbid ANY task in this room at this time
+                        for task_id in tasks:
+                            for inst_id in all_instructors:
+                                if (task_id, inst_id, r_id, day, timeslot) in assign:
+                                    model.Add(assign[(task_id, inst_id, r_id, day, timeslot)] == 0)
 
         # --- HARD CONSTRAINTS ---
 
@@ -176,13 +320,6 @@ def generate_timetable():
                     else: # Computer Lab
                         if 'computer' in room_type:
                             is_valid_room = True
-                        # Fallback: if just 'lab' is specified, assume it's a generic lab (maybe computer)
-                        # But to be strict, let's stick to the specific types if possible.
-                        # If the room is just "Lab", we might allow it for Computer Lab but not Hardware Lab unless specified.
-                        # For now, let's match "computer" for Computer Lab.
-                        # If the user has rooms just named "Lab", they might need to update them.
-                        # Let's allow "lab" for Computer Lab as a fallback if no "computer" rooms exist? 
-                        # Or just stick to the plan: Computer Lab -> Computer Lab.
                         if 'lab' in room_type and 'hardware' not in room_type:
                              is_valid_room = True
 
@@ -234,9 +371,6 @@ def generate_timetable():
         # 7. Consecutive Labs
         # Labs must be 2 hours long and cannot span across breaks.
         
-        # Map timeslot strings to indices for easier handling
-        ts_to_index = {ts: i for i, ts in enumerate(all_timeslots)}
-        
         for sg_id, group in all_student_groups.items():
             enrolled_courses = group.get('enrolledCourses', [])
             for course_id in enrolled_courses:
@@ -265,12 +399,10 @@ def generate_timetable():
                                                 t1 = all_timeslots[t_idx]
                                                 t2 = all_timeslots[t_idx + 1]
                                                 
-                                                # Check if this pair is valid (continuous and not spanning break)
-                                                # Valid pairs: (0,1), (2,3), (4,5), (5,6)
-                                                is_valid_pair = False
-                                                if t_idx == 0: is_valid_pair = True # 08:30 - 10:30
-                                                elif t_idx == 2: is_valid_pair = True # 11:00 - 01:00
-                                                elif t_idx >= 4: is_valid_pair = True # 02:00 - 04:00, 03:00 - 05:00
+                                                # Check if this pair is valid (continuous)
+                                                # Use calculated gaps
+                                                gap = ts_gaps[t_idx]
+                                                is_valid_pair = (gap == 0)
                                                 
                                                 if (lab_task_1, inst_id, room_id, day, t1) in assign and \
                                                    (lab_task_2, inst_id, room_id, day, t2) in assign:
@@ -282,6 +414,135 @@ def generate_timetable():
                                                     else:
                                                         # Invalid pair (spans break), forbid starting at t1
                                                         model.Add(assign[(lab_task_1, inst_id, room_id, day, t1)] == 0)
+                                            
+                                            # Boundary condition: lab_1 cannot start at the LAST slot
+                                            last_ts = all_timeslots[-1]
+                                            if (lab_task_1, inst_id, room_id, day, last_ts) in assign:
+                                                model.Add(assign[(lab_task_1, inst_id, room_id, day, last_ts)] == 0)
+                                                
+                                            # Boundary condition: lab_2 cannot start at the FIRST slot
+                                            first_ts = all_timeslots[0]
+                                            if (lab_task_2, inst_id, room_id, day, first_ts) in assign:
+                                                model.Add(assign[(lab_task_2, inst_id, room_id, day, first_ts)] == 0)
+
+        # 8. Faculty Break Constraint (Minimum 1 hour break between classes)
+        # Exception: Continuous Lab sessions (which are effectively one long class)
+        
+        # First, identify all "paired" lab tasks that MUST be consecutive.
+        # We can store them as a set of tuples: (task_id_1, task_id_2)
+        paired_lab_tasks = set()
+        for sg_id, group in all_student_groups.items():
+            enrolled_courses = group.get('enrolledCourses', [])
+            for course_id in enrolled_courses:
+                course = all_courses.get(course_id)
+                if not course: continue
+                try:
+                    lab_hours = int(course.get('labHours', 0))
+                except:
+                    lab_hours = 0
+                
+                if lab_hours > 0:
+                    for i in range(0, lab_hours, 2):
+                        if i + 1 < lab_hours:
+                            t1_id = f'{sg_id}_{course_id}_lab_{i}'
+                            t2_id = f'{sg_id}_{course_id}_lab_{i+1}'
+                            if t1_id in tasks and t2_id in tasks:
+                                paired_lab_tasks.add((t1_id, t2_id))
+
+        # Now apply the constraint for each instructor
+        for inst_id in all_instructors:
+            for day in all_days:
+                for t_idx in range(len(all_timeslots) - 1):
+                    t1 = all_timeslots[t_idx]
+                    t2 = all_timeslots[t_idx + 1]
+                    
+                    # Check gap. If gap >= 60 minutes, then they ALREADY have a break.
+                    # So we only enforce the constraint if gap < 60.
+                    gap = ts_gaps[t_idx]
+                    if gap >= 60:
+                        continue
+
+                    # Gather all assignments for this instructor at t1 and t2
+                    assigns_t1 = []
+                    assigns_t2 = []
+                    
+                    # Also track if a paired lab is starting at t1
+                    paired_lab_start_vars = []
+
+                    for task_id in tasks:
+                        for room_id in all_rooms:
+                            # Check t1 assignment
+                            if (task_id, inst_id, room_id, day, t1) in assign:
+                                var_t1 = assign[(task_id, inst_id, room_id, day, t1)]
+                                assigns_t1.append(var_t1)
+                                
+                                # Check if this task is the first part of a paired lab
+                                is_start_of_pair = False
+                                for (pt1, pt2) in paired_lab_tasks:
+                                    if pt1 == task_id:
+                                        is_start_of_pair = True
+                                        break
+                                
+                                if is_start_of_pair:
+                                    paired_lab_start_vars.append(var_t1)
+
+                            # Check t2 assignment
+                            if (task_id, inst_id, room_id, day, t2) in assign:
+                                assigns_t2.append(assign[(task_id, inst_id, room_id, day, t2)])
+                    
+                    if assigns_t1 and assigns_t2:
+                        # Constraint: Sum(assigns_t1) + Sum(assigns_t2) <= 1 + Sum(paired_lab_start_vars)
+                        model.Add(sum(assigns_t1) + sum(assigns_t2) <= 1 + sum(paired_lab_start_vars))
+
+        # 9. Max One Lab Per Day per Student Group
+        for sg_id, group in all_student_groups.items():
+            enrolled_courses = group.get('enrolledCourses', [])
+            lab_courses = []
+            
+            # Identify which enrolled courses are labs
+            for c_id in enrolled_courses:
+                course = all_courses.get(c_id)
+                if not course: continue
+                try:
+                    lab_hours = int(course.get('labHours', 0))
+                except:
+                    lab_hours = 0
+                
+                if lab_hours > 0:
+                    lab_courses.append(c_id)
+            
+            if len(lab_courses) > 1:
+                # If group has multiple lab courses, ensure only 1 is scheduled per day
+                for day in all_days:
+                    course_active_vars = []
+                    
+                    for c_id in lab_courses:
+                        # Find all tasks for this lab course
+                        lab_tasks = [tid for tid, t in tasks.items() 
+                                     if t['group_id'] == sg_id and t['course_id'] == c_id and t['type'] == 'lab']
+                        
+                        if not lab_tasks:
+                            continue
+                            
+                        # Gather actual assignment vars for this course on this day
+                        course_day_assigns = []
+                        for task_id in lab_tasks:
+                            for inst_id in all_instructors:
+                                for room_id in all_rooms:
+                                    for timeslot in all_timeslots:
+                                        if (task_id, inst_id, room_id, day, timeslot) in assign:
+                                            course_day_assigns.append(assign[(task_id, inst_id, room_id, day, timeslot)])
+                        
+                        # Create a bool: is this lab course scheduled today?
+                        if course_day_assigns:
+                            is_active = model.NewBoolVar(f'lab_active_{sg_id}_{c_id}_{day}')
+                            model.AddMaxEquality(is_active, course_day_assigns)
+                            course_active_vars.append(is_active)
+                    
+                    if course_active_vars:
+                        # At most 1 lab course can be active on this day
+                        model.Add(sum(course_active_vars) <= 1)
+
 
         # --- SOFT CONSTRAINTS (OBJECTIVES) ---
         objectives = []
@@ -423,5 +684,5 @@ def generate_timetable():
         return jsonify({'status': 'error', 'message': f"Server crashed: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5000, use_reloader=True, reloader_interval=1, reloader_type='stat', extra_files=None, exclude_patterns=['*/Timely_venv/*', '*\\Timely_venv\\*'])
 

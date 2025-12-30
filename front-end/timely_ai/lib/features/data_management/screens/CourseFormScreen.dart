@@ -200,7 +200,7 @@ class _CourseFormScreenState extends ConsumerState<CourseFormScreen> {
                       int.parse(_labHoursController.text) > 0) ...[
                     _buildLabel('Lab Type *'),
                     DropdownButtonFormField<String>(
-                      value: _selectedLabType,
+                      initialValue: _selectedLabType,
                       dropdownColor: const Color(0xFF1A1A1A),
                       style: const TextStyle(color: Colors.white),
                       decoration: _inputDecoration('Select Lab Type'),
@@ -299,7 +299,7 @@ class _CourseFormScreenState extends ConsumerState<CourseFormScreen> {
                         });
                       },
                     );
-                  }).toList(),
+                  }),
                 ],
               ),
             ),
