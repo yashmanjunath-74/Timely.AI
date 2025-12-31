@@ -31,7 +31,21 @@ class Course {
       'equipment': equipment,
       'credits': credits,
       'ltp': ltp,
-      'labType': labType, // NEW
+      'labType': labType,
     };
+  }
+
+  factory Course.fromJson(Map<String, dynamic> json) {
+    return Course(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      lectureHours: json['lectureHours'] as int,
+      labHours: json['labHours'] as int,
+      qualifiedInstructors: List<String>.from(json['qualifiedInstructors']),
+      equipment: List<String>.from(json['equipment'] ?? []),
+      credits: json['credits'] as int? ?? 4,
+      ltp: json['ltp'] as String? ?? '3-0-2',
+      labType: json['labType'] as String? ?? 'Computer Lab',
+    );
   }
 }

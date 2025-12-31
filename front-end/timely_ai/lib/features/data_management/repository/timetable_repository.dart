@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:timely_ai/features/data_management/controller/timetable_controller.dart';
@@ -16,7 +17,7 @@ class TimetableRepository {
   Future<Map<String, dynamic>> generateTimetable() async {
     // The server URL for your local Python backend.
     // 10.0.2.2 is a special IP for the Android emulator to access the host machine (localhost).
-    const String serverUrl = 'http://10.101.73.121:5000/generate-timetable';
+    const String serverUrl = 'http://10.60.168.121:5000/generate-timetable';
 
     // Get the current state (all our lists of data) from the HomeController.
     final homeState = _ref.read(homeControllerProvider);
@@ -56,5 +57,65 @@ class TimetableRepository {
         'Failed to connect to the server. Please ensure it is running.',
       );
     }
+  }
+
+  // --- PERSISTENCE METHODS ---
+
+  // Save a timetable locally
+  Future<void> saveTimetable(
+    List<Map<String, dynamic>> schedule,
+    String name,
+  ) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    // Create a unique ID
+    final String id = DateTime.now().millisecondsSinceEpoch.toString();
+    final String dateStr = DateTime.now().toString().split('.')[0];
+
+    // Save the schedule data
+    await prefs.setString('timetable_\$id', jsonEncode(schedule));
+
+    // Update metadata list
+    final List<String> metaList = prefs.getStringList('timetable_meta') ?? [];
+    final metaData = {'id': id, 'name': name, 'date': dateStr};
+    metaList.add(jsonEncode(metaData));
+    await prefs.setStringList('timetable_meta', metaList);
+  }
+
+  // Get list of saved timetables (metadata only)
+  Future<List<Map<String, dynamic>>> getSavedTimetables() async {
+    final prefs = await SharedPreferences.getInstance();
+    final List<String> metaList = prefs.getStringList('timetable_meta') ?? [];
+
+    return metaList.map((e) => jsonDecode(e) as Map<String, dynamic>).toList();
+  }
+
+  // Load a specific timetable by ID
+  Future<List<Map<String, dynamic>>> loadTimetable(String id) async {
+    final prefs = await SharedPreferences.getInstance();
+    final String? data = prefs.getString('timetable_\$id');
+
+    if (data != null) {
+      final List<dynamic> list = jsonDecode(data);
+      return List<Map<String, dynamic>>.from(list);
+    }
+    return [];
+  }
+
+  // Delete a timetable
+  Future<void> deleteTimetable(String id) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    // Remove data
+    await prefs.remove('timetable_\$id');
+
+    // Remove from metadata
+    final List<String> metaList = prefs.getStringList('timetable_meta') ?? [];
+    final newList = metaList.where((e) {
+      final Map<String, dynamic> meta = jsonDecode(e);
+      return meta['id'] != id;
+    }).toList();
+
+    await prefs.setStringList('timetable_meta', newList);
   }
 }

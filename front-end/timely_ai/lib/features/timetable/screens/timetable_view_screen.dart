@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:timely_ai/features/PDF_creation/pdf_generation_service.dart';
 import 'package:timely_ai/features/data_management/controller/timetable_controller.dart';
+import 'package:timely_ai/features/data_management/repository/timetable_repository.dart';
 import 'package:timely_ai/shared/widgets/glass_card.dart';
 import 'package:timely_ai/shared/widgets/saas_scaffold.dart';
 
@@ -10,6 +11,7 @@ class TimetableViewScreen extends ConsumerStatefulWidget {
 
   const TimetableViewScreen({super.key, required this.schedule});
 
+  @override
   @override
   ConsumerState<TimetableViewScreen> createState() =>
       _TimetableViewScreenState();
@@ -35,6 +37,72 @@ class _TimetableViewScreenState extends ConsumerState<TimetableViewScreen> {
     '03:00 PM - 04:00 PM',
     '04:00 PM - 05:00 PM',
   ];
+
+  Future<void> _showSaveDialog(BuildContext context, WidgetRef ref) async {
+    final TextEditingController nameController = TextEditingController(
+      text: 'Timetable ${DateTime.now().toString().split('.')[0]}',
+    );
+
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: const Color(0xFF1E293B), // Slate 800
+          title: const Text(
+            'Save Timetable',
+            style: TextStyle(color: Colors.white),
+          ),
+          content: TextField(
+            controller: nameController,
+            style: const TextStyle(color: Colors.white),
+            decoration: const InputDecoration(
+              labelText: 'Name',
+              labelStyle: TextStyle(color: Colors.grey),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey),
+              ),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Cancel', style: TextStyle(color: Colors.grey)),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                final name = nameController.text.trim();
+                if (name.isNotEmpty) {
+                  Navigator.of(context).pop();
+                  try {
+                    await ref
+                        .read(timetableRepositoryProvider)
+                        .saveTimetable(widget.schedule, name);
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Timetable saved successfully!'),
+                        ),
+                      );
+                    }
+                  } catch (e) {
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Error saving: $e')),
+                      );
+                    }
+                  }
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueAccent,
+              ),
+              child: const Text('Save', style: TextStyle(color: Colors.white)),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +149,14 @@ class _TimetableViewScreenState extends ConsumerState<TimetableViewScreen> {
     return SaaSScaffold(
       title: 'Generated Timetable',
       actions: [
+        Padding(
+          padding: const EdgeInsets.only(right: 8.0),
+          child: IconButton(
+            onPressed: () => _showSaveDialog(context, ref),
+            icon: const Icon(Icons.save, color: Colors.white),
+            tooltip: 'Save Timetable',
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.only(right: 16.0),
           child: ElevatedButton.icon(

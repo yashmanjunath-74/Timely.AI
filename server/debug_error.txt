@@ -1,0 +1,4 @@
+{
+  "message": "No solution found for the given constraints.",
+  "status": "error"
+}

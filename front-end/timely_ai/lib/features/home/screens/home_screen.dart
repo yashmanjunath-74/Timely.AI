@@ -8,6 +8,7 @@ import 'package:timely_ai/features/data_management/screens/ManageRoomsScreen.dar
 import 'package:timely_ai/features/data_management/screens/ManageStudentGroupsScreen.dart';
 import 'package:timely_ai/features/settings/screens/SettingsScreen.dart';
 import 'package:timely_ai/features/timetable/screens/timetable_view_screen.dart';
+import 'package:timely_ai/features/timetable/screens/history_screen.dart';
 
 import 'package:timely_ai/shared/widgets/saas_scaffold.dart';
 
@@ -311,6 +312,16 @@ class HomeScreen extends ConsumerWidget {
                 );
               },
             ),
+            const SizedBox(height: 20),
+
+            // History Card (Full Width)
+            _ManagementCard(
+              title: 'Saved Timetables',
+              subtitle: 'View past generations',
+              icon: Icons.history,
+              gradientColors: [Colors.indigo[600]!, Colors.indigo[900]!],
+              onTap: () => _navigateTo(context, const HistoryScreen()),
+            ),
             const SizedBox(height: 24),
 
             // Settings Card
@@ -320,6 +331,69 @@ class HomeScreen extends ConsumerWidget {
               icon: Icons.settings_outlined,
               gradientColors: [Colors.grey[800]!, Colors.black],
               onTap: () => _navigateTo(context, const SettingsScreen()),
+            ),
+
+            const SizedBox(height: 24),
+
+            // Data Actions Row
+            Row(
+              children: [
+                Expanded(
+                  child: _ActionButton(
+                    icon: Icons.upload_file,
+                    label: 'Export Data',
+                    color: Colors.tealAccent,
+                    onTap: () async {
+                      try {
+                        await ref
+                            .read(homeControllerProvider.notifier)
+                            .exportData();
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Data exported successfully!'),
+                            ),
+                          );
+                        }
+                      } catch (e) {
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Export failed: $e')),
+                          );
+                        }
+                      }
+                    },
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: _ActionButton(
+                    icon: Icons.download_for_offline,
+                    label: 'Import Data',
+                    color: Colors.amberAccent,
+                    onTap: () async {
+                      try {
+                        await ref
+                            .read(homeControllerProvider.notifier)
+                            .importData();
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Data imported successfully!'),
+                            ),
+                          );
+                        }
+                      } catch (e) {
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Import failed: $e')),
+                          );
+                        }
+                      }
+                    },
+                  ),
+                ),
+              ],
             ),
 
             const SizedBox(height: 48),
@@ -597,6 +671,58 @@ class _ManagementCard extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ActionButton extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final Color color;
+  final VoidCallback onTap;
+
+  const _ActionButton({
+    required this.icon,
+    required this.label,
+    required this.color,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        height: 60,
+        decoration: BoxDecoration(
+          color: const Color(0xFF1A1A1A).withOpacity(0.6), // Dark Glass
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: Colors.white.withOpacity(0.1), width: 1),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, color: color),
+            const SizedBox(width: 12),
+            Text(
+              label,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+              ),
+            ),
+          ],
         ),
       ),
     );

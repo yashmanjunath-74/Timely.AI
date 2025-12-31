@@ -25,6 +25,7 @@ class _StudentGroupFormScreenState
   late List<String> _selectedCourseIds;
   late Map<String, String> _instructorPreferences;
   late Map<String, List<int>> _availability;
+  String? _preferredRoomId;
 
   final List<String> _days = [
     'Monday',
@@ -60,6 +61,7 @@ class _StudentGroupFormScreenState
     _instructorPreferences = Map<String, String>.from(
       widget.initialStudentGroup?.instructorPreferences ?? {},
     );
+    _preferredRoomId = widget.initialStudentGroup?.preferredRoomId;
 
     // Initialize availability
     if (widget.initialStudentGroup != null &&
@@ -125,7 +127,9 @@ class _StudentGroupFormScreenState
         enrolledCourses: _selectedCourseIds,
         instructorPreferences: _instructorPreferences,
         availability: _availability,
+        preferredRoomId: _preferredRoomId,
       );
+
       Navigator.of(context).pop(studentGroup);
     }
   }
@@ -134,6 +138,7 @@ class _StudentGroupFormScreenState
   Widget build(BuildContext context) {
     final allCourses = ref.watch(homeControllerProvider).courses;
     final allInstructors = ref.watch(homeControllerProvider).instructors;
+    final allRooms = ref.watch(homeControllerProvider).rooms;
 
     return SaaSScaffold(
       title: widget.initialStudentGroup == null
@@ -178,9 +183,37 @@ class _StudentGroupFormScreenState
                     validator: (value) =>
                         value!.isEmpty ? 'Please enter a size' : null,
                   ),
+                  const SizedBox(height: 16),
+                  _buildLabel('Preferred Common Room (Optional)'),
+                  DropdownButtonFormField<String>(
+                    value: _preferredRoomId,
+                    decoration: _inputDecoration('Select Preferred Room'),
+                    dropdownColor: const Color(0xFF1E1E1E),
+                    style: const TextStyle(color: Colors.white),
+                    items: [
+                      const DropdownMenuItem(
+                        value: null,
+                        child: Text('No Preference'),
+                      ),
+                      ...allRooms.map((room) {
+                        return DropdownMenuItem(
+                          value: room.id,
+                          child: Text(
+                            '${room.id} - ${room.type} (Cap: ${room.capacity})',
+                          ),
+                        );
+                      }),
+                    ],
+                    onChanged: (value) {
+                      setState(() {
+                        _preferredRoomId = value;
+                      });
+                    },
+                  ),
                 ],
               ),
             ),
+
             const SizedBox(height: 24),
 
             // Courses Card

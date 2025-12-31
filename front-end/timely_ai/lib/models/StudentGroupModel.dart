@@ -8,12 +8,16 @@ class StudentGroup {
   // Availability grid: Map<Day, List<IsAvailable>>
   final Map<String, List<int>> availability;
 
+  // Optional: Preferred Common Room ID
+  final String? preferredRoomId;
+
   StudentGroup({
     required this.id,
     required this.size,
     required this.enrolledCourses,
     this.instructorPreferences = const {},
     this.availability = const {},
+    this.preferredRoomId,
   });
 
   Map<String, dynamic> toJson() {
@@ -23,6 +27,24 @@ class StudentGroup {
       'enrolledCourses': enrolledCourses,
       'instructorPreferences': instructorPreferences,
       'availability': availability,
+      'preferredRoomId': preferredRoomId,
     };
+  }
+
+  factory StudentGroup.fromJson(Map<String, dynamic> json) {
+    return StudentGroup(
+      id: json['id'] as String,
+      size: json['size'] as int,
+      enrolledCourses: List<String>.from(json['enrolledCourses']),
+      instructorPreferences: Map<String, String>.from(
+        json['instructorPreferences'] ?? {},
+      ),
+      availability:
+          (json['availability'] as Map<String, dynamic>?)?.map(
+            (key, value) => MapEntry(key, List<int>.from(value)),
+          ) ??
+          const {},
+      preferredRoomId: json['preferredRoomId'] as String?,
+    );
   }
 }

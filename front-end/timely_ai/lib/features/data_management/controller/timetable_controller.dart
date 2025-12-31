@@ -1,3 +1,7 @@
+import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter_riverpod/legacy.dart';
 import 'package:timely_ai/models/CourseModel.dart';
 import 'package:timely_ai/models/InstructorModel.dart';
@@ -158,6 +162,90 @@ class HomeController extends StateNotifier<HomeState> {
   // --- METHODS FOR SETTINGS MANIPULATION ---
   void updateSettings(Map<String, dynamic> newSettings) {
     state = state.copyWith(settings: newSettings);
+  }
+
+  // --- EXPORT DATA ---
+  Future<void> exportData() async {
+    try {
+      final data = {
+        'instructors': state.instructors.map((e) => e.toJson()).toList(),
+        'courses': state.courses.map((e) => e.toJson()).toList(),
+        'rooms': state.rooms.map((e) => e.toJson()).toList(),
+        'studentGroups': state.studentGroups.map((e) => e.toJson()).toList(),
+        'settings': state.settings,
+      };
+
+      final jsonString = jsonEncode(data);
+      final bytes = utf8.encode(jsonString);
+      final uint8List = Uint8List.fromList(bytes);
+
+      String? outputFile = await FilePicker.platform.saveFile(
+        dialogTitle: 'Please select an output file:',
+        fileName: 'timely_ai_data.json',
+        type: FileType.custom,
+        allowedExtensions: ['json'],
+        bytes: uint8List,
+      );
+
+      if (outputFile != null) {
+        final file = File(outputFile);
+        await file.writeAsBytes(bytes);
+      }
+    } catch (e) {
+      print('Error exporting data: $e');
+      rethrow;
+    }
+  }
+
+  // --- IMPORT DATA ---
+  Future<void> importData() async {
+    try {
+      FilePickerResult? result = await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: ['json'],
+      );
+
+      if (result != null) {
+        final fileOb = result.files.single;
+        String content;
+
+        if (fileOb.bytes != null) {
+          content = utf8.decode(fileOb.bytes!);
+        } else if (fileOb.path != null) {
+          final file = File(fileOb.path!);
+          content = await file.readAsString();
+        } else {
+          return;
+        }
+
+        final Map<String, dynamic> data = jsonDecode(content);
+
+        final newInstructors = (data['instructors'] as List)
+            .map((e) => Instructor.fromJson(e))
+            .toList();
+        final newCourses = (data['courses'] as List)
+            .map((e) => Course.fromJson(e))
+            .toList();
+        final newRooms = (data['rooms'] as List)
+            .map((e) => Room.fromJson(e))
+            .toList();
+        final newStudentGroups = (data['studentGroups'] as List)
+            .map((e) => StudentGroup.fromJson(e))
+            .toList();
+        final newSettings = data['settings'] as Map<String, dynamic>? ?? {};
+
+        state = state.copyWith(
+          instructors: newInstructors,
+          courses: newCourses,
+          rooms: newRooms,
+          studentGroups: newStudentGroups,
+          settings: newSettings,
+        );
+      }
+    } catch (e) {
+      print('Error importing data: $e');
+      rethrow;
+    }
   }
 }
 

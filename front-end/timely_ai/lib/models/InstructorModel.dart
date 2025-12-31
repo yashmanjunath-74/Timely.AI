@@ -13,10 +13,16 @@ class Instructor {
 
   // Convert the object to a JSON format for the API request
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'name': name,
-      'availability': availability,
-    };
+    return {'id': id, 'name': name, 'availability': availability};
+  }
+
+  factory Instructor.fromJson(Map<String, dynamic> json) {
+    return Instructor(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      availability: (json['availability'] as Map<String, dynamic>).map(
+        (key, value) => MapEntry(key, List<int>.from(value)),
+      ),
+    );
   }
 }

@@ -22,4 +22,18 @@ class Room {
       'availability': availability,
     };
   }
+
+  factory Room.fromJson(Map<String, dynamic> json) {
+    return Room(
+      id: json['id'] as String,
+      capacity: json['capacity'] as int,
+      type: json['type'] as String,
+      equipment: List<String>.from(json['equipment'] ?? []),
+      availability:
+          (json['availability'] as Map<String, dynamic>?)?.map(
+            (key, value) => MapEntry(key, List<int>.from(value)),
+          ) ??
+          const {},
+    );
+  }
 }

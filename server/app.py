@@ -642,6 +642,25 @@ def generate_timetable():
                          if 'AM' not in timeslot:
                             objectives.append(var * weight)
 
+        # 9. Preferred Common Room (Soft Constraint)
+        # If a student group has a preferred room, prioritize it for their lectures.
+        room_pref_weight = 5 # Adjust weight as needed (higher than others to prioritize)
+        
+        for (task_id, inst_id, room_id, day, timeslot), var in assign.items():
+            task_info = tasks[task_id]
+            sg_id = task_info['group_id']
+            group = all_student_groups.get(sg_id)
+            
+            if group:
+                preferred_room_id = group.get('preferredRoomId')
+                
+                if preferred_room_id and preferred_room_id in all_rooms:
+                     # If this group has a preference, and the assigned room is NOT the preferred one
+                     if room_id != preferred_room_id:
+                         # Penalize
+                         objectives.append(var * room_pref_weight)
+
+
         # Minimize total penalty
         if objectives:
             model.Minimize(sum(objectives))
