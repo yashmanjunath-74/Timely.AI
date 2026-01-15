@@ -1,0 +1,1977 @@
+{
+    "instructors": [
+        {
+            "id": "INS09524",
+            "name": "Dr. B R Nanditha ",
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "INS17723",
+            "name": "Mrs. Tasmiya Anjum H. N.",
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "INS26508",
+            "name": "Mrs. Divya H T ",
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "INS32889",
+            "name": "Mr. Krishna Swaroop",
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "INS43233",
+            "name": "Mr. Sudarshan G K ",
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "INS50603",
+            "name": "Mrs. Sahana S Kumar ",
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "INS62906",
+            "name": "Dr.  Ananda   Babu J  ",
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "INS70887",
+            "name": "Mrs. Deepthi C G ",
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "INS01087",
+            "name": "Mrs. Chaithra  Chandrashekar ",
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "INS07521",
+            "name": "Mrs. Sindhu Jain AM  ",
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "INS14404",
+            "name": "Mr.Nithin K ",
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "INS26504",
+            "name": "Mrs. Shruthi B S ",
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "INS41070",
+            "name": "Mrs. Vanitha A ",
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "INS58771",
+            "name": "Mrs.Sindhu K S",
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "INS90387",
+            "name": "Mrs.D .V Shruthi",
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "INS03237",
+            "name": "Mrs. Priyanka H L",
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        }
+    ],
+    "courses": [
+        {
+            "id": "24IS401",
+            "name": "Software Engineering",
+            "lectureHours": 3,
+            "labHours": 2,
+            "qualifiedInstructors": [
+                "INS50603",
+                "INS17723"
+            ],
+            "equipment": [],
+            "credits": 4,
+            "ltp": "3-0-2",
+            "labType": "Computer Lab"
+        },
+        {
+            "id": "2415402",
+            "name": "Microprocessor and Microcontroller",
+            "lectureHours": 3,
+            "labHours": 2,
+            "qualifiedInstructors": [
+                "INS43233",
+                "INS41070",
+                "INS01087"
+            ],
+            "equipment": [],
+            "credits": 4,
+            "ltp": "3-0-2",
+            "labType": "Computer Lab"
+        },
+        {
+            "id": "2415403",
+            "name": "Database Management Systems",
+            "lectureHours": 3,
+            "labHours": 2,
+            "qualifiedInstructors": [
+                "INS32889",
+                "INS26508"
+            ],
+            "equipment": [],
+            "credits": 4,
+            "ltp": "3-0-2",
+            "labType": "Computer Lab"
+        },
+        {
+            "id": "2415404",
+            "name": "Design and Analysis of Algorithms",
+            "lectureHours": 3,
+            "labHours": 0,
+            "qualifiedInstructors": [
+                "INS07521",
+                "INS17723"
+            ],
+            "equipment": [],
+            "credits": 4,
+            "ltp": "3-0-2",
+            "labType": "Computer Lab"
+        },
+        {
+            "id": "2415405B",
+            "name": "Internet of Things",
+            "lectureHours": 3,
+            "labHours": 2,
+            "qualifiedInstructors": [
+                "INS58771",
+                "INS26504"
+            ],
+            "equipment": [],
+            "credits": 4,
+            "ltp": "3-0-2",
+            "labType": "Computer Lab"
+        },
+        {
+            "id": "2415406B",
+            "name": "UI/UX laboratory",
+            "lectureHours": 0,
+            "labHours": 2,
+            "qualifiedInstructors": [
+                "INS26508",
+                "INS50603",
+                "INS03237"
+            ],
+            "equipment": [],
+            "credits": 4,
+            "ltp": "3-0-2",
+            "labType": "Computer Lab"
+        },
+        {
+            "id": "241S408",
+            "name": "Design and Analysis of Algorithms Laboratory",
+            "lectureHours": 0,
+            "labHours": 2,
+            "qualifiedInstructors": [
+                "INS07521",
+                "INS17723"
+            ],
+            "equipment": [],
+            "credits": 4,
+            "ltp": "3-0-2",
+            "labType": "Computer Lab"
+        },
+        {
+            "id": "2315601",
+            "name": "Cryptography, Network Security and Cyber Law ",
+            "lectureHours": 3,
+            "labHours": 0,
+            "qualifiedInstructors": [
+                "INS09524",
+                "INS14404"
+            ],
+            "equipment": [],
+            "credits": 4,
+            "ltp": "3-0-2",
+            "labType": "Computer Lab"
+        },
+        {
+            "id": "2315602",
+            "name": "Artificial Intelligence And Machine Learning",
+            "lectureHours": 3,
+            "labHours": 2,
+            "qualifiedInstructors": [
+                "INS62906",
+                "INS26504"
+            ],
+            "equipment": [],
+            "credits": 4,
+            "ltp": "3-0-2",
+            "labType": "Hardware Lab"
+        },
+        {
+            "id": "2315603",
+            "name": "Cloud Computing",
+            "lectureHours": 3,
+            "labHours": 2,
+            "qualifiedInstructors": [
+                "INS70887"
+            ],
+            "equipment": [],
+            "credits": 4,
+            "ltp": "3-0-2",
+            "labType": "Computer Lab"
+        },
+        {
+            "id": "2315662",
+            "name": "Block Chain Technology",
+            "lectureHours": 3,
+            "labHours": 0,
+            "qualifiedInstructors": [
+                "INS03237",
+                "INS90387"
+            ],
+            "equipment": [],
+            "credits": 4,
+            "ltp": "3-0-2",
+            "labType": "Computer Lab"
+        }
+    ],
+    "rooms": [
+        {
+            "id": "CRB1 ",
+            "capacity": 60,
+            "type": "Lecture Hall",
+            "equipment": [],
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "CRB2",
+            "capacity": 60,
+            "type": "Lecture Hall",
+            "equipment": [],
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "CRB3",
+            "capacity": 60,
+            "type": "Lecture Hall",
+            "equipment": [],
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Saturday": [
+                    1,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "CRB4",
+            "capacity": 60,
+            "type": "Lecture Hall",
+            "equipment": [],
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    0,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "PL_LAB",
+            "capacity": 60,
+            "type": "Computer Lab",
+            "equipment": [],
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "CC_LAB",
+            "capacity": 60,
+            "type": "Computer Lab",
+            "equipment": [],
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "Hardware_Lab",
+            "capacity": 60,
+            "type": "Hardware Lab",
+            "equipment": [],
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        }
+    ],
+    "student_groups": [
+        {
+            "id": "23ISA",
+            "size": 60,
+            "enrolledCourses": [
+                "2315601",
+                "2315602",
+                "2315603",
+                "2315662"
+            ],
+            "instructorPreferences": {
+                "2315601": "INS09524",
+                "2315602": "INS62906",
+                "2315603": "INS70887",
+                "2315662": "INS90387"
+            },
+            "availability": {
+                "Monday": [
+                    0,
+                    1,
+                    1,
+                    0,
+                    1,
+                    1,
+                    0
+                ],
+                "Tuesday": [
+                    0,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "Wednesday": [
+                    0,
+                    1,
+                    1,
+                    0,
+                    1,
+                    1,
+                    0
+                ],
+                "Thursday": [
+                    0,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                "Friday": [
+                    0,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                "Saturday": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "preferredRoomId": "CRB4",
+            "labTimingPreferences": {
+                "2315602": "Afternoon",
+                "2315603": "Afternoon"
+            }
+        },
+        {
+            "id": "23ISB",
+            "size": 60,
+            "enrolledCourses": [
+                "2315601",
+                "2315602",
+                "2315603",
+                "2315662"
+            ],
+            "instructorPreferences": {
+                "2315601": "INS14404",
+                "2315602": "INS26504",
+                "2315603": "INS70887",
+                "2315662": "INS90387"
+            },
+            "availability": {
+                "Monday": [
+                    0,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "Tuesday": [
+                    0,
+                    1,
+                    1,
+                    0,
+                    1,
+                    1,
+                    0
+                ],
+                "Wednesday": [
+                    0,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "Thursday": [
+                    0,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0
+                ],
+                "Friday": [
+                    0,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                "Saturday": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "preferredRoomId": null,
+            "labTimingPreferences": {
+                "2315602": "Afternoon",
+                "2315603": "Afternoon"
+            }
+        },
+        {
+            "id": "24ISA",
+            "size": 60,
+            "enrolledCourses": [
+                "24IS401",
+                "2415403",
+                "2415404",
+                "2415405B",
+                "2415406B",
+                "241S408",
+                "2415402"
+            ],
+            "instructorPreferences": {
+                "2415402": "INS43233",
+                "2415403": "INS32889",
+                "24IS401": "INS50603",
+                "2415405B": "INS58771",
+                "241S408": "INS07521",
+                "2415406B": "INS03237"
+            },
+            "availability": {
+                "Monday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Tuesday": [
+                    0,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Thursday": [
+                    0,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    0,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    0,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "preferredRoomId": "CRB1 ",
+            "labTimingPreferences": {}
+        },
+        {
+            "id": "24ISB",
+            "size": 60,
+            "enrolledCourses": [
+                "24IS401",
+                "2415402",
+                "2415403",
+                "2415404",
+                "2415405B",
+                "2415406B",
+                "241S408"
+            ],
+            "instructorPreferences": {
+                "2415402": "INS41070",
+                "2415403": "INS32889",
+                "2415404": "INS07521",
+                "24IS401": "INS50603",
+                "2415405B": "INS58771",
+                "2415406B": "INS50603",
+                "241S408": "INS07521"
+            },
+            "availability": {
+                "Monday": [
+                    0,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Tuesday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    0,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    0,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Saturday": [
+                    0,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "preferredRoomId": "CRB2",
+            "labTimingPreferences": {
+                "2415402": "Afternoon",
+                "2415405B": "Afternoon"
+            }
+        },
+        {
+            "id": "24ISC",
+            "size": 60,
+            "enrolledCourses": [
+                "24IS401",
+                "2415402",
+                "2415403",
+                "2415404",
+                "2415405B",
+                "2415406B",
+                "241S408"
+            ],
+            "instructorPreferences": {
+                "2415402": "INS01087",
+                "2415403": "INS26508",
+                "2415404": "INS17723",
+                "24IS401": "INS17723",
+                "2415405B": "INS26504",
+                "2415406B": "INS26508",
+                "241S408": "INS17723"
+            },
+            "availability": {
+                "Monday": [
+                    0,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Tuesday": [
+                    0,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Wednesday": [
+                    0,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Thursday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "Friday": [
+                    0,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                "Saturday": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "preferredRoomId": "CRB3",
+            "labTimingPreferences": {
+                "241S408": "Afternoon",
+                "2415402": "Afternoon",
+                "2415405B": "Afternoon"
+            }
+        }
+    ],
+    "settings": {
+        "gapPriority": 0,
+        "fairWorkload": true,
+        "guaranteedLunch": false,
+        "preferredMorningCourses": [
+            "2415404",
+            "2415405B",
+            "2415406B",
+            "241S408",
+            "2315601",
+            "2315603",
+            "2315662",
+            "24IS401",
+            "2415402",
+            "2415403",
+            "2315602"
+        ]
+    }
+}

@@ -16,6 +16,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   double _gapPriority = 2.0; // 0: Low, 1: Medium, 2: High
   bool _fairWorkload = false;
   bool _guaranteedLunch = false;
+  bool _disallow830Labs = false;
   final List<String> _preferredMorningCourses = [];
 
   @override
@@ -26,6 +27,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     _gapPriority = settings['gapPriority'] ?? 2.0;
     _fairWorkload = settings['fairWorkload'] ?? false;
     _guaranteedLunch = settings['guaranteedLunch'] ?? false;
+    _disallow830Labs = settings['disallow830Labs'] ?? false;
     _preferredMorningCourses.addAll(
       List<String>.from(settings['preferredMorningCourses'] ?? []),
     );
@@ -36,6 +38,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       'gapPriority': _gapPriority,
       'fairWorkload': _fairWorkload,
       'guaranteedLunch': _guaranteedLunch,
+      'disallow830Labs': _disallow830Labs,
       'preferredMorningCourses': _preferredMorningCourses,
     });
     Navigator.of(context).pop();
@@ -291,6 +294,48 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   onChanged: (value) {
                     setState(() {
                       _guaranteedLunch = value;
+                    });
+                  },
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+
+          // Disallow 8:30 AM Labs
+          GlassCard(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Disallow 8:30 AM Labs',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(height: 4),
+                      Text(
+                        'Do not schedule any labs at 8:30 AM slot',
+                        style: TextStyle(color: Colors.white54, fontSize: 12),
+                      ),
+                    ],
+                  ),
+                ),
+                Switch(
+                  value: _disallow830Labs,
+                  activeThumbColor: const Color(0xFFFFFF00), // Neon Yellow
+                  activeTrackColor: const Color(0xFFFFFF00).withOpacity(0.5),
+                  inactiveThumbColor: Colors.white,
+                  inactiveTrackColor: Colors.white24,
+                  onChanged: (value) {
+                    setState(() {
+                      _disallow830Labs = value;
                     });
                   },
                 ),

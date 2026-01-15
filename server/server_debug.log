@@ -1,0 +1,1023 @@
+
+2025-12-31 17:01:21.843807 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'studentGroups', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 17:01:21.844231 ---
+2025-12-31 17:01:21.844651: Received 0 student groups.
+2025-12-31 17:01:21.845199: Created 0 tasks.
+2025-12-31 17:01:21.854349: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 17:01:46.025286 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 17:01:46.026220 ---
+2025-12-31 17:01:46.027291: Received 5 student groups.
+2025-12-31 17:01:46.033768: Created 113 tasks.
+2025-12-31 17:01:55.310213: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 17:02:57.707574 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 17:02:57.707889 ---
+2025-12-31 17:02:57.709431: Received 5 student groups.
+2025-12-31 17:02:57.713166: Created 113 tasks.
+2025-12-31 17:03:06.650780: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 17:03:33.202551 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 17:03:33.203060 ---
+2025-12-31 17:03:33.204337: Received 5 student groups.
+
+2025-12-31 17:04:03.225935 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 17:04:03.226205 ---
+2025-12-31 17:04:03.227350: Received 5 student groups.
+
+2025-12-31 17:04:27.494610 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 17:04:27.495221 ---
+2025-12-31 17:04:27.497369: Received 5 student groups.
+2025-12-31 17:04:27.501864: Created 113 tasks.
+
+2025-12-31 17:04:30.868898 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 17:04:30.946815 ---
+2025-12-31 17:04:31.175098: Received 5 student groups.
+2025-12-31 17:04:31.175918: Scheduling Failed: Student Group '23ISA' requires 16 hours, but only has 0 available slots. Please increase availability or reduce course load.
+2025-12-31 17:04:35.493792: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 17:05:55.158235 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 17:05:55.158575 ---
+2025-12-31 17:05:55.159581: Received 5 student groups.
+2025-12-31 17:05:55.164520: Created 113 tasks.
+2025-12-31 17:06:03.553518: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 17:06:58.171359 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 17:06:58.171861 ---
+2025-12-31 17:06:58.173261: Received 5 student groups.
+2025-12-31 17:06:58.178435: Created 113 tasks.
+2025-12-31 17:07:05.145146: Solver Status: 3 (Optimal=4, Feasible=2)
+
+2025-12-31 17:07:12.556909 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 17:07:12.557453 ---
+2025-12-31 17:07:12.558815: Received 5 student groups.
+2025-12-31 17:07:12.564666: Created 113 tasks.
+2025-12-31 17:07:18.873130: Solver Status: 3 (Optimal=4, Feasible=2)
+
+2025-12-31 17:07:57.206130 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 17:07:57.206697 ---
+2025-12-31 17:07:57.207899: Received 5 student groups.
+2025-12-31 17:07:57.213962: Created 113 tasks.
+2025-12-31 17:08:06.178083: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 17:10:13.158113 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 17:10:13.158662 ---
+2025-12-31 17:10:13.160199: Received 5 student groups.
+2025-12-31 17:10:13.166208: Created 113 tasks.
+2025-12-31 17:10:21.436221: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 17:17:05.089994 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 17:17:05.090472 ---
+2025-12-31 17:17:05.092811: Received 5 student groups.
+2025-12-31 17:17:05.106824: Created 113 tasks.
+2025-12-31 17:17:18.260917: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 17:59:05.236839 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 17:59:05.237332 ---
+2025-12-31 17:59:05.238645: Received 1 student groups.
+2025-12-31 17:59:05.241035: Created 2 tasks.
+2025-12-31 17:59:05.257433: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 17:59:05.264146 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 17:59:05.265567 ---
+2025-12-31 17:59:05.266864: Received 1 student groups.
+2025-12-31 17:59:05.268369: Created 2 tasks.
+2025-12-31 17:59:05.290452: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 17:59:46.380731 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 17:59:46.381257 ---
+2025-12-31 17:59:46.382425: Received 1 student groups.
+2025-12-31 17:59:46.384993: Created 2 tasks.
+2025-12-31 17:59:46.395042: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 17:59:46.400550 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 17:59:46.401436 ---
+2025-12-31 17:59:46.402083: Received 1 student groups.
+2025-12-31 17:59:46.403353: Created 2 tasks.
+2025-12-31 17:59:46.410240: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 18:00:04.670164 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 18:00:04.670890 ---
+2025-12-31 18:00:04.671391: Received 1 student groups.
+2025-12-31 18:00:04.672327: Created 2 tasks.
+2025-12-31 18:00:04.693014: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 18:00:04.700535 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 18:00:04.701903 ---
+2025-12-31 18:00:04.703103: Received 1 student groups.
+2025-12-31 18:00:04.704151: Created 2 tasks.
+2025-12-31 18:00:04.724031: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 18:00:59.911476 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 18:00:59.912365 ---
+2025-12-31 18:00:59.912940: Received 1 student groups.
+2025-12-31 18:00:59.913897: Created 2 tasks.
+2025-12-31 18:00:59.935114: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 18:00:59.940455 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 18:00:59.941315 ---
+2025-12-31 18:00:59.942002: Received 1 student groups.
+2025-12-31 18:00:59.942907: Created 2 tasks.
+2025-12-31 18:00:59.950907: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 18:02:45.241332 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 18:02:45.241665 ---
+2025-12-31 18:02:45.242684: Received 1 student groups.
+2025-12-31 18:02:45.245034: Created 2 tasks.
+2025-12-31 18:02:45.267241: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 18:02:45.270030 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 18:02:45.270371 ---
+2025-12-31 18:02:45.271081: Received 1 student groups.
+2025-12-31 18:02:45.272129: Created 2 tasks.
+2025-12-31 18:02:45.283321: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 18:03:32.872789 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 18:03:32.873065 ---
+2025-12-31 18:03:32.873783: Received 1 student groups.
+2025-12-31 18:03:32.875030: Created 2 tasks.
+2025-12-31 18:03:32.894340: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 18:03:32.901936 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 18:03:32.902508 ---
+2025-12-31 18:03:32.903594: Received 1 student groups.
+2025-12-31 18:03:32.905421: Created 2 tasks.
+2025-12-31 18:03:32.924237: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 18:04:15.735197 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 18:04:15.735982 ---
+2025-12-31 18:04:15.737004: Received 1 student groups.
+2025-12-31 18:04:15.739692: Created 2 tasks.
+2025-12-31 18:04:15.760499: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 18:04:15.766261 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 18:04:15.767062 ---
+2025-12-31 18:04:15.768326: Received 1 student groups.
+2025-12-31 18:04:15.771143: Created 2 tasks.
+2025-12-31 18:04:15.791008: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 18:04:59.022152 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 18:04:59.022378 ---
+2025-12-31 18:04:59.023286: Received 1 student groups.
+2025-12-31 18:04:59.024382: Scheduling Failed: Course 'LabCourse' (G1) requires a Lab, but no assigned instructor (Inst1) is available for 2 consecutive slots where the group is also available.
+2025-12-31 18:04:59.024643: Validation Detail: C1, Group G1, Insts: Inst1
+2025-12-31 18:04:59.024911: Valid Lab Starts: [1]
+
+2025-12-31 18:04:59.026374 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 18:04:59.026652 ---
+2025-12-31 18:04:59.028754: Received 1 student groups.
+2025-12-31 18:04:59.031949: Scheduling Failed: Course 'LabCourse' (G1) requires a Lab, but no assigned instructor (Inst1) is available for 2 consecutive slots where the group is also available.
+2025-12-31 18:04:59.033019: Validation Detail: C1, Group G1, Insts: Inst1
+2025-12-31 18:04:59.033645: Valid Lab Starts: [1]
+
+2025-12-31 18:05:43.723720 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 18:05:43.724561 ---
+2025-12-31 18:05:43.725866: Received 1 student groups.
+2025-12-31 18:05:43.729246: Scheduling Failed: Course 'LabCourse' (G1) requires a Lab, but no assigned instructor (Inst1) is available for 2 consecutive slots where the group is also available.
+2025-12-31 18:05:43.730159: Validation Detail: C1, Group G1, Insts: Inst1
+2025-12-31 18:05:43.731029: Valid Lab Starts: [1]
+
+2025-12-31 18:05:43.732922 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 18:05:43.733335 ---
+2025-12-31 18:05:43.733987: Received 1 student groups.
+2025-12-31 18:05:43.735535: Scheduling Failed: Course 'LabCourse' (G1) requires a Lab, but no assigned instructor (Inst1) is available for 2 consecutive slots where the group is also available.
+2025-12-31 18:05:43.736010: Validation Detail: C1, Group G1, Insts: Inst1
+2025-12-31 18:05:43.736489: Valid Lab Starts: [1]
+
+2025-12-31 19:01:40.973331 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:01:40.975047 ---
+2025-12-31 19:01:40.980218: Received 5 student groups.
+2025-12-31 19:01:40.998702: Created 113 tasks.
+2025-12-31 19:01:47.419861: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 19:04:57.426042 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:04:57.426744 ---
+2025-12-31 19:04:57.428389: Received 5 student groups.
+2025-12-31 19:04:57.433699: Created 113 tasks.
+2025-12-31 19:05:05.327461: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 19:06:51.375408 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:06:51.376216 ---
+2025-12-31 19:06:51.377628: Received 5 student groups.
+2025-12-31 19:06:51.381235: Created 113 tasks.
+2025-12-31 19:06:59.529034: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 19:11:41.213109 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:11:41.213481 ---
+2025-12-31 19:11:41.214816: Received 5 student groups.
+2025-12-31 19:11:41.219815: Created 113 tasks.
+2025-12-31 19:11:49.317265: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 19:19:33.828140 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 19:19:33.828484 ---
+2025-12-31 19:19:33.828931: Received 1 student groups.
+2025-12-31 19:19:33.829688: Created 2 tasks.
+2025-12-31 19:19:33.838759: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 19:19:33.839990 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 19:19:33.840226 ---
+2025-12-31 19:19:33.840603: Received 1 student groups.
+2025-12-31 19:19:33.841014: Scheduling Failed: Course 'LabCourse' (G1) requires a Lab, but no assigned instructor (Inst1) is available for 2 consecutive slots where the group is also available.
+2025-12-31 19:19:33.841249: Validation Detail: C1, Group G1, Insts: Inst1
+2025-12-31 19:19:33.841486: Valid Lab Starts: [1]
+
+2025-12-31 19:19:33.842348 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 19:19:33.842555 ---
+2025-12-31 19:19:33.842926: Received 1 student groups.
+2025-12-31 19:19:33.843465: Scheduling Failed: Course 'LabCourse' (G1) requires a Lab, but no assigned instructor (Inst1) is available for 2 consecutive slots where the group is also available.
+2025-12-31 19:19:33.843858: Validation Detail: C1, Group G1, Insts: Inst1
+2025-12-31 19:19:33.844130: Valid Lab Starts: [1]
+
+2025-12-31 19:26:27.960861 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 19:26:27.961816 ---
+2025-12-31 19:26:27.963210: Received 1 student groups.
+2025-12-31 19:26:27.965055: Created 2 tasks.
+2025-12-31 19:26:27.983791: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 19:26:27.985094 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 19:26:27.985295 ---
+2025-12-31 19:26:27.986299: Received 1 student groups.
+2025-12-31 19:26:27.987190: Scheduling Failed: Course 'LabCourse' (G1) requires a Lab, but no assigned instructor (Inst1) is available for 2 consecutive slots where the group is also available.
+2025-12-31 19:26:27.987784: Validation Detail: C1, Group G1, Insts: Inst1
+2025-12-31 19:26:27.988304: Valid Lab Starts: [1]
+
+2025-12-31 19:26:27.989837 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 19:26:27.990086 ---
+2025-12-31 19:26:27.990725: Received 1 student groups.
+2025-12-31 19:26:27.991269: Scheduling Failed: Course 'LabCourse' (G1) requires a Lab, but no assigned instructor (Inst1) is available for 2 consecutive slots where the group is also available.
+2025-12-31 19:26:27.991727: Validation Detail: C1, Group G1, Insts: Inst1
+2025-12-31 19:26:27.992390: Valid Lab Starts: [1]
+
+2025-12-31 19:27:39.231788 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:27:39.232192 ---
+2025-12-31 19:27:39.233712: Received 5 student groups.
+2025-12-31 19:27:39.240362: Created 113 tasks.
+2025-12-31 19:27:48.087166: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 19:29:31.823912 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:29:31.824475 ---
+2025-12-31 19:29:31.825721: Received 5 student groups.
+2025-12-31 19:29:31.831120: Created 113 tasks.
+2025-12-31 19:29:39.432772: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 19:30:35.668982 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:30:35.669504 ---
+2025-12-31 19:30:35.670671: Received 5 student groups.
+2025-12-31 19:30:35.675400: Created 113 tasks.
+2025-12-31 19:30:43.922502: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 19:34:52.993743 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2025-12-31 19:34:52.994060 ---
+2025-12-31 19:34:52.994650: Received 1 student groups.
+2025-12-31 19:34:52.995648: Created 2 tasks.
+2025-12-31 19:34:53.005064: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 19:35:46.150639 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:35:46.151159 ---
+2025-12-31 19:35:46.152742: Received 5 student groups.
+2025-12-31 19:35:46.158042: Created 113 tasks.
+2025-12-31 19:35:55.525812: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 19:37:38.519408 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:37:38.520198 ---
+2025-12-31 19:37:38.521662: Received 5 student groups.
+2025-12-31 19:37:38.526879: Created 113 tasks.
+2025-12-31 19:37:47.018594: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 19:42:44.936762 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:42:44.937325 ---
+2025-12-31 19:42:44.938516: Received 5 student groups.
+2025-12-31 19:42:44.943562: Created 113 tasks.
+2025-12-31 19:42:51.253251: Solver Status: 3 (Optimal=4, Feasible=2)
+
+2025-12-31 19:43:00.890377 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:43:00.891003 ---
+2025-12-31 19:43:00.892067: Received 5 student groups.
+2025-12-31 19:43:00.896656: Created 113 tasks.
+2025-12-31 19:43:07.168153: Solver Status: 3 (Optimal=4, Feasible=2)
+
+2025-12-31 19:43:18.072708 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:43:18.073540 ---
+2025-12-31 19:43:18.074626: Received 5 student groups.
+2025-12-31 19:43:18.078977: Created 113 tasks.
+2025-12-31 19:43:24.686492: Solver Status: 3 (Optimal=4, Feasible=2)
+
+2025-12-31 19:43:42.688185 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:43:42.688761 ---
+2025-12-31 19:43:42.689875: Received 5 student groups.
+2025-12-31 19:43:42.694593: Created 113 tasks.
+2025-12-31 19:43:49.341596: Solver Status: 3 (Optimal=4, Feasible=2)
+
+2025-12-31 19:45:16.652532 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:45:16.653424 ---
+2025-12-31 19:45:16.655407: Received 5 student groups.
+2025-12-31 19:45:16.661060: Created 113 tasks.
+2025-12-31 19:45:23.384728: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 19:45:29.655925 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:45:29.656719 ---
+2025-12-31 19:45:29.657790: Received 5 student groups.
+2025-12-31 19:45:29.661377: Created 113 tasks.
+2025-12-31 19:45:38.823603: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 19:45:43.094187 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:45:43.094487 ---
+2025-12-31 19:45:43.095867: Received 5 student groups.
+2025-12-31 19:45:43.105276: Created 113 tasks.
+2025-12-31 19:45:50.430339: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 19:45:54.107078 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:45:54.107674 ---
+2025-12-31 19:45:54.109624: Received 5 student groups.
+2025-12-31 19:45:54.115229: Created 113 tasks.
+2025-12-31 19:46:00.603621: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 19:47:01.455173 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:47:01.455730 ---
+2025-12-31 19:47:01.456865: Received 5 student groups.
+2025-12-31 19:47:01.461478: Created 113 tasks.
+2025-12-31 19:47:08.357594: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 19:52:32.247968 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:52:32.248577 ---
+2025-12-31 19:52:32.249734: Received 5 student groups.
+2025-12-31 19:52:32.255971: Created 113 tasks.
+2025-12-31 19:52:38.966106: Solver Status: 3 (Optimal=4, Feasible=2)
+
+2025-12-31 19:52:45.303074 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:52:45.303896 ---
+2025-12-31 19:52:45.305169: Received 5 student groups.
+2025-12-31 19:52:45.310234: Created 113 tasks.
+2025-12-31 19:52:51.783542: Solver Status: 3 (Optimal=4, Feasible=2)
+
+2025-12-31 19:58:44.335859 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:58:44.336619 ---
+2025-12-31 19:58:44.337882: Received 5 student groups.
+2025-12-31 19:58:44.342804: Created 113 tasks.
+2025-12-31 19:58:51.074101: Solver Status: 3 (Optimal=4, Feasible=2)
+
+2025-12-31 19:59:13.861044 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:59:13.861639 ---
+2025-12-31 19:59:13.862605: Received 5 student groups.
+2025-12-31 19:59:13.867789: Created 113 tasks.
+
+2025-12-31 19:59:38.977403 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 19:59:38.978143 ---
+2025-12-31 19:59:38.980163: Received 5 student groups.
+2025-12-31 19:59:38.985181: Created 113 tasks.
+2025-12-31 19:59:48.387437: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:00:19.051796 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:00:19.052180 ---
+2025-12-31 20:00:19.053566: Received 5 student groups.
+2025-12-31 20:00:19.058410: Created 113 tasks.
+2025-12-31 20:00:27.346133: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:00:36.424348 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:00:36.425139 ---
+2025-12-31 20:00:36.426066: Received 5 student groups.
+2025-12-31 20:00:36.430746: Created 113 tasks.
+2025-12-31 20:00:44.133079: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:00:52.270388 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:00:52.271034 ---
+2025-12-31 20:00:52.272464: Received 5 student groups.
+2025-12-31 20:00:52.276773: Created 113 tasks.
+2025-12-31 20:01:00.101889: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:02:02.450293 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:02:02.450950 ---
+2025-12-31 20:02:02.452099: Received 5 student groups.
+2025-12-31 20:02:02.456731: Created 113 tasks.
+2025-12-31 20:02:11.018827: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:02:49.609712 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:02:49.610315 ---
+2025-12-31 20:02:49.611930: Received 5 student groups.
+2025-12-31 20:02:49.616848: Created 113 tasks.
+2025-12-31 20:02:59.876183: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:03:37.964876 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:03:37.965286 ---
+2025-12-31 20:03:37.967110: Received 5 student groups.
+2025-12-31 20:03:37.969465: Scheduling Failed: Course 'Cloud Computing' (23ISB) requires a Lab, but no assigned instructor (Mrs. Deepthi C G ) is available for 2 consecutive slots where the group is also available.
+2025-12-31 20:03:37.970652: Validation Detail: 2315603, Group 23ISB, Insts: Mrs. Deepthi C G 
+2025-12-31 20:03:37.971915: Valid Lab Starts: [4]
+
+2025-12-31 20:03:43.615698 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:03:43.616313 ---
+2025-12-31 20:03:43.617434: Received 5 student groups.
+2025-12-31 20:03:43.618772: Scheduling Failed: Course 'Cloud Computing' (23ISB) requires a Lab, but no assigned instructor (Mrs. Deepthi C G ) is available for 2 consecutive slots where the group is also available.
+2025-12-31 20:03:43.619506: Validation Detail: 2315603, Group 23ISB, Insts: Mrs. Deepthi C G 
+2025-12-31 20:03:43.620160: Valid Lab Starts: [4]
+
+2025-12-31 20:04:08.581268 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:04:08.581626 ---
+2025-12-31 20:04:08.583085: Received 5 student groups.
+2025-12-31 20:04:08.589530: Created 113 tasks.
+2025-12-31 20:04:18.138360: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:04:55.101520 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:04:55.102140 ---
+2025-12-31 20:04:55.103846: Received 5 student groups.
+2025-12-31 20:04:55.109105: Created 113 tasks.
+2025-12-31 20:05:02.863526: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:05:54.508898 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:05:54.509230 ---
+2025-12-31 20:05:54.510297: Received 5 student groups.
+2025-12-31 20:05:54.514019: Created 113 tasks.
+2025-12-31 20:06:02.684304: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:06:18.494166 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:06:18.494951 ---
+2025-12-31 20:06:18.496526: Received 5 student groups.
+2025-12-31 20:06:18.502704: Created 113 tasks.
+2025-12-31 20:06:26.164405: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:06:46.245312 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:06:46.245986 ---
+2025-12-31 20:06:46.247099: Received 5 student groups.
+2025-12-31 20:06:46.251579: Created 113 tasks.
+2025-12-31 20:06:54.410134: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:07:15.925857 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:07:15.926550 ---
+2025-12-31 20:07:15.927585: Received 5 student groups.
+2025-12-31 20:07:15.932490: Created 113 tasks.
+2025-12-31 20:07:23.700501: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:08:50.787466 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:08:50.788040 ---
+2025-12-31 20:08:50.789272: Received 5 student groups.
+2025-12-31 20:08:50.793625: Created 113 tasks.
+2025-12-31 20:08:59.125674: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:10:04.090252 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:10:04.091868 ---
+2025-12-31 20:10:04.096242: Received 5 student groups.
+2025-12-31 20:10:04.115654: Created 113 tasks.
+2025-12-31 20:10:21.243402: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:11:22.603016 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:11:22.603678 ---
+2025-12-31 20:11:22.605080: Received 5 student groups.
+2025-12-31 20:11:22.613584: Created 113 tasks.
+2025-12-31 20:11:39.699983: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:12:32.268140 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:12:32.268913 ---
+2025-12-31 20:12:32.270318: Received 5 student groups.
+2025-12-31 20:12:32.277309: Scheduling Failed: Course 'Microprocessor and Microcontroller' (24ISC) requires a Lab, but no assigned instructor (Mrs. Chaithra  Chandrashekar ) is available for 2 consecutive slots where the group is also available.
+2025-12-31 20:12:32.278446: Validation Detail: 2415402, Group 24ISC, Insts: Mrs. Chaithra  Chandrashekar 
+2025-12-31 20:12:32.279465: Valid Lab Starts: [5]
+
+2025-12-31 20:15:44.998251 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:15:44.998957 ---
+2025-12-31 20:15:45.000965: Received 5 student groups.
+2025-12-31 20:15:45.007461: Created 113 tasks.
+2025-12-31 20:16:02.429664: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:16:51.531385 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:16:51.532564 ---
+2025-12-31 20:16:51.534411: Received 5 student groups.
+2025-12-31 20:16:51.543807: Created 113 tasks.
+2025-12-31 20:17:09.363497: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:18:58.361125 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:18:58.361861 ---
+2025-12-31 20:18:58.364415: Received 5 student groups.
+2025-12-31 20:18:58.371170: Created 113 tasks.
+2025-12-31 20:19:13.079019: Solver Status: 3 (Optimal=4, Feasible=2)
+
+2025-12-31 20:19:47.485176 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:19:47.485767 ---
+2025-12-31 20:19:47.487431: Received 5 student groups.
+2025-12-31 20:19:47.493633: Created 113 tasks.
+2025-12-31 20:20:06.811949: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:20:50.044754 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:20:50.045497 ---
+2025-12-31 20:20:50.047432: Received 5 student groups.
+2025-12-31 20:20:50.053342: Created 113 tasks.
+2025-12-31 20:21:08.495725: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:21:47.594959 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:21:47.596079 ---
+2025-12-31 20:21:47.598586: Received 5 student groups.
+2025-12-31 20:21:47.607247: Created 113 tasks.
+2025-12-31 20:22:05.271281: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:23:46.254116 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:23:46.255266 ---
+2025-12-31 20:23:46.257593: Received 5 student groups.
+2025-12-31 20:23:46.265331: Created 113 tasks.
+2025-12-31 20:24:02.604245: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:24:29.344792 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:24:29.345305 ---
+2025-12-31 20:24:29.346475: Received 5 student groups.
+2025-12-31 20:24:29.348233: Scheduling Failed: Course 'Cloud Computing' (23ISA) requires a Lab, but no assigned instructor (Mrs. Deepthi C G ) is available for 2 consecutive slots where the group is also available.
+2025-12-31 20:24:29.349091: Validation Detail: 2315603, Group 23ISA, Insts: Mrs. Deepthi C G 
+2025-12-31 20:24:29.349702: Valid Lab Starts: [4]
+
+2025-12-31 20:24:57.796460 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:24:57.797609 ---
+2025-12-31 20:24:57.799942: Received 5 student groups.
+2025-12-31 20:24:57.808293: Created 113 tasks.
+2025-12-31 20:25:14.832314: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:25:39.735052 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:25:39.735877 ---
+2025-12-31 20:25:39.736968: Received 5 student groups.
+2025-12-31 20:25:39.744527: Created 113 tasks.
+2025-12-31 20:25:56.786542: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:26:38.668936 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:26:38.669405 ---
+2025-12-31 20:26:38.670886: Received 5 student groups.
+2025-12-31 20:26:38.678192: Created 113 tasks.
+2025-12-31 20:26:55.529541: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:27:27.185987 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:27:27.186619 ---
+2025-12-31 20:27:27.187957: Received 5 student groups.
+2025-12-31 20:27:27.197924: Created 113 tasks.
+2025-12-31 20:27:46.114552: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:33:40.388732 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:33:40.391406 ---
+2025-12-31 20:33:40.393008: Received 5 student groups.
+2025-12-31 20:33:40.401117: Created 113 tasks.
+2025-12-31 20:33:57.561982: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:34:57.537756 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:34:57.538575 ---
+2025-12-31 20:34:57.539644: Received 5 student groups.
+2025-12-31 20:34:57.546559: Created 113 tasks.
+2025-12-31 20:35:11.544468: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2025-12-31 20:35:46.926320 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2025-12-31 20:35:46.926936 ---
+2025-12-31 20:35:46.928343: Received 5 student groups.
+2025-12-31 20:35:46.936478: Created 113 tasks.
+2025-12-31 20:36:04.476145: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-01-01 09:51:50.178613 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-01 09:51:50.181972 ---
+2026-01-01 09:51:50.183635: Received 5 student groups.
+2026-01-01 09:51:50.191721: Created 113 tasks.
+2026-01-01 09:52:10.427426: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-01-01 09:54:21.857473 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-01 09:54:21.857927 ---
+2026-01-01 09:54:21.862498: Received 5 student groups.
+2026-01-01 09:54:21.867191: Created 113 tasks.
+2026-01-01 09:54:38.382852: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-01-01 10:17:46.148337 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-01 10:17:46.149273 ---
+2026-01-01 10:17:46.153059: Received 5 student groups.
+2026-01-01 10:17:46.166219: Created 113 tasks.
+2026-01-01 10:18:02.407485: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-01-01 10:18:47.842598 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-01 10:18:47.843100 ---
+2026-01-01 10:18:47.844705: Received 5 student groups.
+2026-01-01 10:18:47.854826: Created 113 tasks.
+2026-01-01 10:19:09.574694: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-01-01 10:19:58.054743 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-01 10:19:58.055329 ---
+2026-01-01 10:19:58.057470: Received 5 student groups.
+2026-01-01 10:19:58.066988: Created 113 tasks.
+2026-01-01 10:20:18.551466: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-01-01 15:36:20.932592 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-01 15:36:20.943647 ---
+2026-01-01 15:36:20.951001: Received 5 student groups.
+2026-01-01 15:36:20.976852: Created 113 tasks.
+2026-01-01 15:36:52.846225: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-01-01 16:10:46.398660 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-01 16:10:46.401155 ---
+2026-01-01 16:10:46.409517: Received 5 student groups.
+2026-01-01 16:10:46.434556: Created 113 tasks.
+2026-01-01 16:11:22.589074: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-01-01 16:41:26.309442 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-01 16:41:26.313370 ---
+2026-01-01 16:41:26.323334: Received 5 student groups.
+2026-01-01 16:41:26.352112: Created 113 tasks.
+2026-01-01 16:42:00.552068: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-01-01 16:46:16.988886 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-01 16:46:16.991041 ---
+2026-01-01 16:46:17.000565: Received 5 student groups.
+2026-01-01 16:46:17.029097: Created 113 tasks.
+2026-01-01 16:46:59.010465: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-01-01 20:32:06.856995 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-01 20:32:06.862266 ---
+2026-01-01 20:32:06.867392: Received 5 student groups.
+2026-01-01 20:32:06.882106: Created 113 tasks.
+2026-01-01 20:32:10.390502: Solver Status: 3 (Optimal=4, Feasible=2)
+
+2026-01-01 20:33:06.752020 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-01 20:33:06.753565 ---
+2026-01-01 20:33:06.755776: Received 5 student groups.
+2026-01-01 20:33:06.764816: Created 113 tasks.
+2026-01-01 20:33:16.417311: Solver Status: 3 (Optimal=4, Feasible=2)
+
+2026-01-01 20:33:48.897143 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-01 20:33:48.898472 ---
+2026-01-01 20:33:48.900230: Received 5 student groups.
+2026-01-01 20:33:48.907053: Created 113 tasks.
+2026-01-01 20:34:00.935189: Solver Status: 3 (Optimal=4, Feasible=2)
+
+2026-01-01 20:34:13.571722 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-01 20:34:13.572509 ---
+2026-01-01 20:34:13.574421: Received 5 student groups.
+2026-01-01 20:34:13.580484: Created 113 tasks.
+2026-01-01 20:34:34.617969: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-01-01 20:36:02.857897 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-01 20:36:02.859106 ---
+2026-01-01 20:36:02.861201: Received 5 student groups.
+2026-01-01 20:36:02.870306: Created 113 tasks.
+2026-01-01 20:36:24.458666: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-01-01 20:37:40.857162 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-01 20:37:40.858321 ---
+2026-01-01 20:37:40.860537: Received 5 student groups.
+2026-01-01 20:37:40.867380: Created 113 tasks.
+2026-01-01 20:38:00.340712: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-01-02 18:41:50.835898 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-02 18:41:50.837570 ---
+2026-01-02 18:41:50.842651: Received 5 student groups.
+2026-01-02 18:41:50.857542: Created 113 tasks.
+2026-01-02 18:42:21.896140: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-01-02 18:47:27.394791 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-02 18:47:27.396262 ---
+2026-01-02 18:47:27.399828: Received 5 student groups.
+2026-01-02 18:47:27.425669: Created 113 tasks.
+2026-01-02 18:47:59.350802: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-01-02 18:59:02.405606 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-02 18:59:02.406828 ---
+2026-01-02 18:59:02.410209: Received 5 student groups.
+2026-01-02 18:59:02.436071: Created 113 tasks.
+2026-01-02 18:59:28.435449: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-01-02 19:00:46.134262 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-02 19:00:46.135250 ---
+2026-01-02 19:00:46.137819: Received 5 student groups.
+2026-01-02 19:00:46.151792: Created 113 tasks.
+2026-01-02 19:01:12.376380: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-01-15 10:18:46.871737 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-01-15 10:18:46.873964 ---
+2026-01-15 10:18:46.876855: Received 5 student groups.
+2026-01-15 10:18:46.896851: Created 113 tasks.
+2026-01-15 10:19:06.884391: Solver Status: 4 (Optimal=4, Feasible=2)

@@ -11,6 +11,12 @@ class StudentGroup {
   // Optional: Preferred Common Room ID
   final String? preferredRoomId;
 
+  // Map of CourseID -> Preference ("Any", "Afternoon")
+  final Map<String, String> labTimingPreferences;
+
+  // Map of CourseID -> RoomID for specific lab room assignment
+  final Map<String, String> labRoomPreferences;
+
   StudentGroup({
     required this.id,
     required this.size,
@@ -18,6 +24,8 @@ class StudentGroup {
     this.instructorPreferences = const {},
     this.availability = const {},
     this.preferredRoomId,
+    this.labTimingPreferences = const {},
+    this.labRoomPreferences = const {},
   });
 
   Map<String, dynamic> toJson() {
@@ -28,6 +36,8 @@ class StudentGroup {
       'instructorPreferences': instructorPreferences,
       'availability': availability,
       'preferredRoomId': preferredRoomId,
+      'labTimingPreferences': labTimingPreferences,
+      'labRoomPreferences': labRoomPreferences,
     };
   }
 
@@ -45,6 +55,12 @@ class StudentGroup {
           ) ??
           const {},
       preferredRoomId: json['preferredRoomId'] as String?,
+      labTimingPreferences: Map<String, String>.from(
+        json['labTimingPreferences'] ?? {},
+      ),
+      labRoomPreferences: Map<String, String>.from(
+        json['labRoomPreferences'] ?? {},
+      ),
     );
   }
 }

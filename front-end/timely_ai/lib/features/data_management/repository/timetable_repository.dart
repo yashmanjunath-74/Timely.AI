@@ -34,27 +34,28 @@ class TimetableRepository {
       'settings': homeState.settings,
     });
 
+    http.Response response;
     try {
-      final response = await http.post(
+      response = await http.post(
         Uri.parse(serverUrl),
         headers: {'Content-Type': 'application/json'},
         body: requestBody,
       );
-
-      if (response.statusCode == 200) {
-        // If the server returns a success response, parse and return the data.
-        return jsonDecode(response.body);
-      } else {
-        // If the server returns an error, parse the message and throw an exception.
-        final errorData = jsonDecode(response.body);
-        throw Exception(
-          errorData['message'] ?? 'An unknown server error occurred.',
-        );
-      }
     } catch (e) {
       // Handle network errors (e.g., the server is not running).
       throw Exception(
         'Failed to connect to the server. Please ensure it is running.',
+      );
+    }
+
+    if (response.statusCode == 200) {
+      // If the server returns a success response, parse and return the data.
+      return jsonDecode(response.body);
+    } else {
+      // If the server returns an error, parse the message and throw an exception.
+      final errorData = jsonDecode(response.body);
+      throw Exception(
+        errorData['message'] ?? 'An unknown server error occurred.',
       );
     }
   }

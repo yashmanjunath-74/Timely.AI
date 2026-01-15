@@ -35,6 +35,9 @@ def parse_timeslot(ts_str):
 def generate_timetable():
     try:
         data = request.get_json()
+        with open("server_debug.log", "a") as f:
+            f.write(f"\n{datetime.now()} - Request received\n")
+            f.write(f"Parsed JSON keys: {list(data.keys())}\n")
         instructors = data.get('instructors', [])
         courses = data.get('courses', [])
         rooms = data.get('rooms', [])
@@ -42,6 +45,12 @@ def generate_timetable():
         days = data.get('days', [])
         timeslots = data.get('timeslots', [])
         settings = data.get('settings', {})
+
+        # Open log file for this request
+        with open("server_debug.log", "a") as f:
+            f.write(f"\n\n--- NEW REQUEST {datetime.now()} ---\n")
+
+        # DEBUG: Print received data
 
         # DEBUG: Print received data
         print(f"DEBUG: Received {len(student_groups)} student groups.")
@@ -58,7 +67,17 @@ def generate_timetable():
         all_days = days
         all_timeslots = timeslots
         
-        # Parse timeslots and calculate gaps
+        debug_log = []
+        def log(msg):
+            print(f"DEBUG: {msg}")
+            debug_log.append(msg)
+            try:
+                with open("server_debug.log", "a") as f:
+                    f.write(f"{datetime.now()}: {msg}\n")
+            except: pass
+
+        log(f"Received {len(student_groups)} student groups.")
+
         # ts_parsed: list of (start, end)
         ts_parsed = [parse_timeslot(ts) for ts in all_timeslots]
         
@@ -70,6 +89,260 @@ def generate_timetable():
             start_next = ts_parsed[i+1][0]
             gap = start_next - end_current
             ts_gaps.append(gap)
+            
+        # --- VALIDATION: PRE-CHECK CONSTRAINT SATISFACTION ---
+        # 1. Check if Student Groups have enough available slots for their requirements
+        for sg_id, group in all_student_groups.items():
+            enrolled_courses = group.get('enrolledCourses', [])
+            total_required_hours = 0
+            for c_id in enrolled_courses:
+                course = all_courses.get(c_id)
+                if not course: continue
+                try:
+                    total_required_hours += int(course.get('lectureHours', 0))
+                    total_required_hours += int(course.get('labHours', 0))
+                except (ValueError, TypeError):
+                    pass
+            
+            # Calculate available slots for this group
+            # Start with max possible
+            total_available_slots = len(all_days) * len(all_timeslots)
+            
+            # Subtract unavailable slots
+            availability = group.get('availability', {})
+            unavailable_count = 0
+            if availability:
+                for day in all_days:
+                    slots = availability.get(day, [])
+                    # Count 0s in valid range
+                    for i in range(min(len(slots), len(all_timeslots))):
+                         if slots[i] == 0:
+                             unavailable_count += 1
+            
+            total_available_slots -= unavailable_count
+            
+            # DEBUG: Log values for each group to trace the issue
+            print(f"DEBUG: Group {sg_id} - Required: {total_required_hours}, Available: {total_available_slots}")
+
+            if total_required_hours > total_available_slots:
+                msg = f"Scheduling Failed: Student Group '{group.get('id')}' requires {total_required_hours} hours, but only has {total_available_slots} available slots. Please increase availability or reduce course load."
+                log(msg)
+                return jsonify({
+                    'status': 'error', 
+                    'message': msg
+                }), 400
+
+            # 1.1 Check for Impossible Lab Constraints (Consecutive Slots & Instructor Availability)
+            # This checks for ALL labs, ensuring there are valid consecutive slots where both Group and Instructor are available.
+            lab_prefs = group.get('labTimingPreferences', {})
+            for c_id in enrolled_courses:
+                course = all_courses.get(c_id)
+                if not course: continue
+                try:
+                    lab_hours = int(course.get('labHours', 0))
+                except: lab_hours = 0
+                
+                # Check for labs (assuming they need at least 2 consecutive hours)
+                if lab_hours >= 2: 
+                    # Check preferences
+                    pref = lab_prefs.get(c_id)
+                    is_afternoon = (pref == 'Afternoon')
+                    
+                    specific_start_min = None
+                    if pref and not is_afternoon:
+                        # Heuristic to find start time from strings like "11:00 - 1:00", "2 to 4", "8:30 - 10:30"
+                        p_lower = pref.lower()
+                        if '8:30' in p_lower: specific_start_min = 510  # 8:30 AM
+                        elif '11' in p_lower: specific_start_min = 660  # 11:00 AM
+                        elif '2' in p_lower and '12' not in p_lower: specific_start_min = 840   # 2:00 PM
+                        elif '3' in p_lower and '13' not in p_lower: specific_start_min = 900   # 3:00 PM
+                        elif '1' in p_lower and '11' not in p_lower and '12' not in p_lower: specific_start_min = 780 # 1:00 PM
+
+
+                    disallow_830 = settings.get('disallow830Labs', False)
+
+                    valid_lab_starts = []
+                    for t_idx in range(len(all_timeslots) - 1): # Check for 2-hour blocks
+                        t_start_min = ts_parsed[t_idx][0]
+                        
+                        # Filtering
+                        if is_afternoon and t_start_min < 720: continue
+                        if specific_start_min is not None and t_start_min != specific_start_min: continue
+                        
+                        # New Global Setting: Disallow 8:30 AM Labs
+                        # 8:30 AM is 510 minutes from midnight
+                        if disallow_830 and t_start_min == 510:
+                            continue
+                        
+                        # Check if t_idx and t_idx+1 are continuous (gap must be 0)
+                        if ts_gaps[t_idx] == 0:
+                            valid_lab_starts.append(t_idx)
+
+                    if not valid_lab_starts:
+                         msg = f"Scheduling Failed: Course '{course['name']}' requires a {lab_hours}-hour lab ({pref if pref else 'Any Time'}), but no consecutive slots exist starting at the preferred time (check breaks or timeslots)."
+                         log(msg)
+                         return jsonify({'status': 'error', 'message': msg, 'debug_log': debug_log}), 400
+                    
+                    # Check Instructor Availability for these slots
+                    # Needs at least ONE valid start slot where instructor is available for BOTH hours
+                    
+                    # Get qualified/preferred instructor
+                    instructor_id = None
+                    inst_prefs = group.get('instructorPreferences', {})
+                    if c_id in inst_prefs:
+                        instructor_id = inst_prefs[c_id]
+                    
+                    instructors_to_check = []
+                    if instructor_id:
+                         instructors_to_check = [all_instructors.get(instructor_id)]
+                    else:
+                         q_ids = course.get('qualifiedInstructors', [])
+                         instructors_to_check = [all_instructors.get(qid) for qid in q_ids]
+                    
+                    instructors_to_check = [i for i in instructors_to_check if i] # Filter None
+
+                    if not instructors_to_check:
+                        log(f"Warning: No valid instructors found for {c_id}")
+                        continue
+
+                    can_schedule = False
+                    
+                    # Check if ANY instructor can teach in ANY valid slot on ANY day
+                    for inst in instructors_to_check:
+                        inst_avail = inst.get('availability', {})
+                        for day in all_days:
+                            # Group must also be available!
+                            group_avail = availability.get(day, [])
+                            inst_day_avail = inst_avail.get(day, [])
+                            
+                            for start_idx in valid_lab_starts:
+                                # Check slot 1 and slot 2 (indices start_idx and start_idx+1)
+                                
+                                # Check Group Avail
+                                g_ok = True
+                                if start_idx < len(group_avail) and group_avail[start_idx] == 0: g_ok = False
+                                if (start_idx+1) < len(group_avail) and group_avail[start_idx+1] == 0: g_ok = False
+                                
+                                if not g_ok: continue
+
+                                # Check Inst Avail
+                                i_ok = True
+                                if start_idx < len(inst_day_avail) and inst_day_avail[start_idx] == 0: i_ok = False
+                                if (start_idx+1) < len(inst_day_avail) and inst_day_avail[start_idx+1] == 0: i_ok = False
+
+                                if i_ok:
+                                    can_schedule = True
+                                    # log(f"Found VALID slot for {c_id}: Day {day}, Index {start_idx}")
+                                    break
+                            if can_schedule: break
+                        if can_schedule: break
+                    
+                    if not can_schedule:
+                         inst_names = ", ".join([i['name'] for i in instructors_to_check])
+                         msg = f"Scheduling Failed: Course '{course['name']}' ({group.get('id')}) requires a Lab{' (Afternoon)' if is_afternoon else ''}, but no assigned instructor ({inst_names}) is available for 2 consecutive slots where the group is also available."
+                         log(msg)
+                         log(f"Validation Detail: {c_id}, Group {group['id']}, Insts: {inst_names}")
+                         log(f"Valid Lab Starts: {valid_lab_starts}")
+                         return jsonify({
+                            'status': 'error', 
+                            'message': msg,
+                            'debug_log': debug_log
+                        }), 400
+
+            # 1.2 Check Per-Course Instructor-Group Availability Overlap
+            # Ensure that for each course, there are enough slots where BOTH Group and Instructor are available.
+            for c_id in enrolled_courses:
+                course = all_courses.get(c_id)
+                if not course: continue
+                
+                try:
+                    req_hours = int(course.get('lectureHours', 0)) + int(course.get('labHours', 0))
+                except: req_hours = 0
+                
+                if req_hours == 0: continue
+
+                # Get Instructors
+                inst_prefs = group.get('instructorPreferences', {})
+                instructor_id = inst_prefs.get(c_id)
+                
+                check_instructors = []
+                if instructor_id:
+                     check_instructors = [all_instructors.get(instructor_id)]
+                else:
+                     q_ids = course.get('qualifiedInstructors', [])
+                     check_instructors = [all_instructors.get(qid) for qid in q_ids]
+                
+                check_instructors = [i for i in check_instructors if i]
+                if not check_instructors: continue
+
+                # Calculate valid overlap count
+                overlap_count = 0
+                # We can sum overlap across all days/slots. 
+                # If ANY instructor is available at (day, slot), and Group is available, it counts.
+                
+                for day in all_days:
+                    group_day_avail = group.get('availability', {}).get(day, [])
+                    
+                    # Compute union of instructor availability for this day
+                    inst_union_avail = [0] * len(all_timeslots)
+                    for inst in check_instructors:
+                        inst_day_avail = inst.get('availability', {}).get(day, [])
+                        for i in range(min(len(inst_day_avail), len(all_timeslots))):
+                            if inst_day_avail[i] == 1:
+                                inst_union_avail[i] = 1
+                    
+                    # Intersect with Group
+                    for i in range(min(len(group_day_avail), len(all_timeslots))):
+                        if group_day_avail[i] == 1 and inst_union_avail[i] == 1:
+                            overlap_count += 1
+                
+                print(f"DEBUG: Course {c_id} ({course['name']}) Overlap: {overlap_count}, Required: {req_hours}")
+                
+                if overlap_count < req_hours:
+                     msg = f"Scheduling Failed: Course '{course['name']}' requires {req_hours} hours. Based on Student Group '{group.get('id')}' availability and Instructor availability, only {overlap_count} valid slots exist. Please increase availability."
+                     print(f"DEBUG: {msg}")
+                     return jsonify({
+                        'status': 'error', 
+                        'message': msg
+                    }), 400
+
+
+        # 2. Check Global Room Capacity vs Total Requirements
+        total_global_required_hours = 0
+        for sg_id, group in all_student_groups.items():
+            enrolled_courses = group.get('enrolledCourses', [])
+            for c_id in enrolled_courses:
+                course = all_courses.get(c_id)
+                if not course: continue
+                try:
+                    total_global_required_hours += int(course.get('lectureHours', 0))
+                    total_global_required_hours += int(course.get('labHours', 0))
+                except: pass
+        
+        total_global_room_slots = 0
+        for r_id, room in all_rooms.items():
+            room_slots = len(all_days) * len(all_timeslots)
+            availability = room.get('availability', {})
+            unavailable_count = 0
+            if availability:
+                for day in all_days:
+                    slots = availability.get(day, [])
+                    for i in range(min(len(slots), len(all_timeslots))):
+                        if slots[i] == 0:
+                            unavailable_count += 1
+            
+            total_global_room_slots += (room_slots - unavailable_count)
+            
+        print(f"DEBUG: Global Check - Required: {total_global_required_hours}, Room Capacity: {total_global_room_slots}")
+
+        if total_global_required_hours > total_global_room_slots:
+             msg = f"Scheduling Failed: Total class hours required ({total_global_required_hours}) exceed the total capacity of all rooms ({total_global_room_slots}). Please add more rooms or extend working hours."
+             print(f"DEBUG: {msg}")
+             return jsonify({
+                'status': 'error', 
+                'message': msg
+            }), 400
+
 
         # Create unique tasks for each required session (lecture or lab)
         # REFACTOR: Tasks are now specific to a Student Group.
@@ -107,9 +380,14 @@ def generate_timetable():
                         'type': 'lab',
                         'group_id': sg_id
                     }
+        msg_tasks = f"Created {len(tasks)} tasks."
+        print(f"DEBUG: {msg_tasks}")
+        with open("server_debug.log", "a") as f:
+            f.write(f"{datetime.now()}: {msg_tasks}\n")
 
         # --- CREATE VARIABLES ---
         assign = {}
+        lab_vars = []
         for task_id, task_info in tasks.items():
             course_id = task_info['course_id']
             course = all_courses[course_id]
@@ -137,7 +415,16 @@ def generate_timetable():
                 for room_id in all_rooms:
                     for day in all_days:
                         for timeslot in all_timeslots:
-                            assign[(task_id, inst_id, room_id, day, timeslot)] = model.NewBoolVar(f'assign_{task_id}_{inst_id}_{room_id}_{day}_{timeslot}')
+                            v = model.NewBoolVar(f'assign_{task_id}_{inst_id}_{room_id}_{day}_{timeslot}')
+                            assign[(task_id, inst_id, room_id, day, timeslot)] = v
+                            
+                            if task_info['type'] == 'lab':
+                                lab_vars.append(v)
+        
+        # --- PRIORITIZE LAB ALLOCATION ---
+        # Force the solver to branch on lab variables first.
+        if lab_vars:
+             model.AddDecisionStrategy(lab_vars, cp_model.CHOOSE_FIRST, cp_model.SELECT_MIN_VALUE)
 
         # --- INSTRUCTOR AVAILABILITY CONSTRAINT ---
         # Enforce that instructors are not assigned to slots where they are unavailable.
@@ -310,7 +597,24 @@ def generate_timetable():
                 course = all_courses[task_info['course_id']]
                 lab_type = course.get('labType', 'Computer Lab') # Default to Computer Lab
 
+                # Check for specific room preference (Hard Constraint)
+                sg_id = task_info['group_id']
+                group = all_student_groups.get(sg_id)
+                preferred_room_id = None
+                if group:
+                     preferred_room_id = group.get('labRoomPreferences', {}).get(task_info['course_id'])
+
                 for room_id, room in all_rooms.items():
+                    # 1. Check Preference Constraint
+                    if preferred_room_id and room_id != preferred_room_id:
+                         # Block ALL slots for this room
+                         for inst_id in all_instructors:
+                             for day in all_days:
+                                 for timeslot in all_timeslots:
+                                     if (task_id, inst_id, room_id, day, timeslot) in assign:
+                                         model.Add(assign[(task_id, inst_id, room_id, day, timeslot)] == 0)
+                         continue
+
                     room_type = room.get('type', '').lower()
                     
                     is_valid_room = False
@@ -544,8 +848,59 @@ def generate_timetable():
                         model.Add(sum(course_active_vars) <= 1)
 
 
+
+        # 10. Lab Afternoon Preference (Hard Constraint)
+        # If a student group prefers labs in the afternoon for a specific course, enforce it.
+        # Afternoon starts at 12:00 PM (720 minutes)
+        
+        # Identify morning slots
+        morning_slots = []
+        for i, ts in enumerate(all_timeslots):
+            start_min, _ = ts_parsed[i]
+            if start_min < 720: # Before 12:00 PM
+                morning_slots.append(ts)
+        
+        for task_id, task_info in tasks.items():
+            if task_info['type'] == 'lab':
+                sg_id = task_info['group_id']
+                course_id = task_info['course_id']
+                group = all_student_groups.get(sg_id)
+                
+                if group:
+                    lab_prefs = group.get('labTimingPreferences', {})
+                    pref = lab_prefs.get(course_id)
+                    
+                    if pref == 'Afternoon':
+                        # Forbid morning slots
+                        for timeslot in morning_slots:
+                             for day in all_days:
+                                for inst_id in all_instructors:
+                                    for room_id in all_rooms:
+                                        if (task_id, inst_id, room_id, day, timeslot) in assign:
+                                            model.Add(assign[(task_id, inst_id, room_id, day, timeslot)] == 0)
+
         # --- SOFT CONSTRAINTS (OBJECTIVES) ---
         objectives = []
+
+        # 11. Disallow 8:30 AM Labs (Soft Constraint / Penalty)
+        # We moved this from Hard to Soft because strict enforcement can cause failures 
+        # (e.g., on Saturdays or with limited rooms/availabilities).
+        # We apply a MASSIVE penalty (e.g. 1000) to ensure it's avoided unless absolutely necessary.
+        if settings.get('disallow830Labs', False):
+            # Identify slots in 8:30 AM - 10:30 AM range (510 to 630 minutes)
+            forbidden_slots = []
+            for i, ts in enumerate(all_timeslots):
+                start_min, end_min = ts_parsed[i]
+                if start_min >= 510 and end_min <= 630:
+                     forbidden_slots.append(ts)
+            
+            if forbidden_slots:
+                penalty_weight = 1000 # Very high penalty
+                for task_id, task_info in tasks.items():
+                    if task_info['type'] == 'lab':
+                         for (tid, inst_id, room_id, day, timeslot), var in assign.items():
+                             if tid == task_id and timeslot in forbidden_slots:
+                                 objectives.append(var * penalty_weight)
 
         # 6. Minimize Gaps for Students
         gap_priority = settings.get('gapPriority', 0.0)
@@ -667,8 +1022,12 @@ def generate_timetable():
         
         # --- SOLVE ---
         solver = cp_model.CpSolver()
-        solver.parameters.max_time_in_seconds = 30.0
+        solver.parameters.max_time_in_seconds = 120.0
         status = solver.Solve(model)
+        status_msg = f"Solver Status: {status} (Optimal={cp_model.OPTIMAL}, Feasible={cp_model.FEASIBLE})"
+        print(f"DEBUG: {status_msg}")
+        with open("server_debug.log", "a") as f:
+            f.write(f"{datetime.now()}: {status_msg}\n")
 
         # --- PROCESS RESULTS ---
         if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
@@ -694,13 +1053,94 @@ def generate_timetable():
                     })
             return jsonify({'status': 'success', 'schedule': schedule})
         else:
-            return jsonify({'status': 'error', 'message': 'No solution found for the given constraints.'}), 400
+            # --- HEURISTIC ANALYSIS FOR USER FRIENDLY ERROR ---
+            hints = []
+            
+            # 1. Check for "Tight Fit" Groups
+            for sg_id, group in all_student_groups.items():
+                # Re-calculate required
+                enrolled_courses = group.get('enrolledCourses', [])
+                req_hours = 0
+                for c_id in enrolled_courses:
+                    course = all_courses.get(c_id)
+                    if course:
+                        try:
+                            req_hours += int(course.get('lectureHours', 0)) + int(course.get('labHours', 0))
+                        except: pass
+                
+                # Re-calculate available
+                avail_slots = 0
+                availability = group.get('availability', {})
+                if availability:
+                    for day in all_days:
+                        slots = availability.get(day, [])
+                        for i in range(min(len(slots), len(all_timeslots))):
+                            if slots[i] == 1:
+                                avail_slots += 1
+                else:
+                    avail_slots = len(all_days) * len(all_timeslots)
+                
+                if avail_slots > 0 and (req_hours / avail_slots) >= 0.8: # Lowered to 80%
+                     hints.append(f"Student Group '{group.get('id')}' is very busy (Needs {req_hours} slots, Has {avail_slots} available). Any mismatch in lab hours or instructor availability will cause failure. Try freeing up more slots for this group.")
+
+            # 2. Check for Overworked Instructors
+            # This is an estimation, as we don't know exactly which instructor is picked for every course (if multiple qualified).
+            # But we can check if a single instructor is the ONLY option for many courses.
+            inst_load = {}
+            for sg_id, group in all_student_groups.items():
+                for c_id in group.get('enrolledCourses', []):
+                    course = all_courses.get(c_id)
+                    if not course: continue
+                    
+                    # Determine probable instructor
+                    prob_inst_id = None
+                    inst_prefs = group.get('instructorPreferences', {})
+                    if c_id in inst_prefs:
+                        prob_inst_id = inst_prefs[c_id]
+                    else:
+                        q_ids = course.get('qualifiedInstructors', [])
+                        if len(q_ids) == 1:
+                            prob_inst_id = q_ids[0]
+                    
+                    if prob_inst_id:
+                        try:
+                            hrs = int(course.get('lectureHours', 0)) + int(course.get('labHours', 0))
+                        except: hrs = 0
+                        inst_load[prob_inst_id] = inst_load.get(prob_inst_id, 0) + hrs
+
+            for inst_id, required_hours in inst_load.items():
+                instructor = all_instructors.get(inst_id)
+                if not instructor: continue
+                
+                # key 'availability'
+                avail_slots = 0
+                availability = instructor.get('availability', {})
+                if availability:
+                    for day in all_days:
+                        slots = availability.get(day, [])
+                        for i in range(min(len(slots), len(all_timeslots))):
+                            if slots[i] == 1:
+                                avail_slots += 1
+                else:
+                     avail_slots = len(all_days) * len(all_timeslots)
+                
+                if avail_slots > 0 and required_hours > avail_slots:
+                    hints.append(f"Instructor '{instructor['name']}' is overloaded (Assigned {required_hours} hours, Available for {avail_slots} slots).")
+                elif avail_slots > 0 and (required_hours / avail_slots) > 0.8:
+                     hints.append(f"Instructor '{instructor['name']}' has very high load (Assigned {required_hours} hours, Available for {avail_slots} slots).")
+
+
+            message = 'No solution found for the given constraints.'
+            if hints:
+                message += " Likely causes: " + " ".join(hints)
+            
+            return jsonify({'status': 'error', 'message': message, 'debug_log': debug_log}), 400
 
     except Exception as e:
         import traceback
         traceback.print_exc()
         # This will now give a more descriptive error message in the app
-        return jsonify({'status': 'error', 'message': f"Server crashed: {str(e)}"}), 500
+        return jsonify({'status': 'error', 'message': f"Server crashed: {str(e)}", 'debug_log': debug_log if 'debug_log' in locals() else []}), 500
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000, use_reloader=True, reloader_interval=1, reloader_type='stat', extra_files=None, exclude_patterns=['*/Timely_venv/*', '*\\Timely_venv\\*'])

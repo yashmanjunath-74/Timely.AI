@@ -24,6 +24,8 @@ class _StudentGroupFormScreenState
   late TextEditingController _sizeController;
   late List<String> _selectedCourseIds;
   late Map<String, String> _instructorPreferences;
+  late Map<String, String> _labTimingPreferences;
+  late Map<String, String> _labRoomPreferences;
   late Map<String, List<int>> _availability;
   String? _preferredRoomId;
 
@@ -60,6 +62,12 @@ class _StudentGroupFormScreenState
     );
     _instructorPreferences = Map<String, String>.from(
       widget.initialStudentGroup?.instructorPreferences ?? {},
+    );
+    _labTimingPreferences = Map<String, String>.from(
+      widget.initialStudentGroup?.labTimingPreferences ?? {},
+    );
+    _labRoomPreferences = Map<String, String>.from(
+      widget.initialStudentGroup?.labRoomPreferences ?? {},
     );
     _preferredRoomId = widget.initialStudentGroup?.preferredRoomId;
 
@@ -128,6 +136,8 @@ class _StudentGroupFormScreenState
         instructorPreferences: _instructorPreferences,
         availability: _availability,
         preferredRoomId: _preferredRoomId,
+        labTimingPreferences: _labTimingPreferences,
+        labRoomPreferences: _labRoomPreferences,
       );
 
       Navigator.of(context).pop(studentGroup);
@@ -261,6 +271,8 @@ class _StudentGroupFormScreenState
                               } else {
                                 _selectedCourseIds.remove(course.id);
                                 _instructorPreferences.remove(course.id);
+                                _labTimingPreferences.remove(course.id);
+                                _labRoomPreferences.remove(course.id);
                               }
                             });
                           },
@@ -302,6 +314,101 @@ class _StudentGroupFormScreenState
                                     _instructorPreferences.remove(course.id);
                                   } else {
                                     _instructorPreferences[course.id] = value;
+                                  }
+                                });
+                              },
+                            ),
+                          ),
+                        if (isSelected && course.labHours > 0)
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 40.0,
+                              bottom: 16.0,
+                              right: 16.0,
+                            ),
+                            child: DropdownButtonFormField<String>(
+                              initialValue: _labRoomPreferences[course.id],
+                              decoration: _inputDecoration(
+                                'Preferred Lab Room (Optional)',
+                              ),
+                              dropdownColor: const Color(0xFF1E1E1E),
+                              style: const TextStyle(color: Colors.white),
+                              items: [
+                                const DropdownMenuItem(
+                                  value: null,
+                                  child: Text('Any Lab Room'),
+                                ),
+                                ...allRooms
+                                    .where(
+                                      (r) =>
+                                          r.type.toLowerCase().contains('lab'),
+                                    )
+                                    .map((room) {
+                                      return DropdownMenuItem(
+                                        value: room.id,
+                                        child: Text(
+                                          '${room.id} - ${room.type}',
+                                        ),
+                                      );
+                                    }),
+                              ],
+                              onChanged: (value) {
+                                setState(() {
+                                  if (value == null) {
+                                    _labRoomPreferences.remove(course.id);
+                                  } else {
+                                    _labRoomPreferences[course.id] = value;
+                                  }
+                                });
+                              },
+                            ),
+                          ),
+                        if (isSelected && course.labHours > 0)
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 40.0,
+                              bottom: 16.0,
+                              right: 16.0,
+                            ),
+                            child: DropdownButtonFormField<String>(
+                              initialValue: _labTimingPreferences[course.id],
+                              decoration: _inputDecoration(
+                                'Preferred Lab Timing',
+                              ),
+                              dropdownColor: const Color(0xFF1E1E1E),
+                              style: const TextStyle(color: Colors.white),
+                              items: const [
+                                DropdownMenuItem(
+                                  value: null,
+                                  child: Text('Any Time'),
+                                ),
+                                DropdownMenuItem(
+                                  value: 'Afternoon',
+                                  child: Text('Afternoon (Fallback)'),
+                                ),
+                                DropdownMenuItem(
+                                  value: '08:30 AM - 10:30 AM',
+                                  child: Text('08:30 AM - 10:30 AM'),
+                                ),
+                                DropdownMenuItem(
+                                  value: '11:00 AM - 01:00 PM',
+                                  child: Text('11:00 AM - 01:00 PM'),
+                                ),
+                                DropdownMenuItem(
+                                  value: '02:00 PM - 04:00 PM',
+                                  child: Text('02:00 PM - 04:00 PM'),
+                                ),
+                                DropdownMenuItem(
+                                  value: '03:00 PM - 05:00 PM',
+                                  child: Text('03:00 PM - 05:00 PM'),
+                                ),
+                              ],
+                              onChanged: (value) {
+                                setState(() {
+                                  if (value == null) {
+                                    _labTimingPreferences.remove(course.id);
+                                  } else {
+                                    _labTimingPreferences[course.id] = value!;
                                   }
                                 });
                               },
