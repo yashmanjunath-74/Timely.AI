@@ -1,3 +1,4 @@
+
 # Timely.AI — Intelligent Academic Timetable Scheduling System
 > *An AI-powered academic scheduling platform combining Flutter, reactive state management (Riverpod), and Google OR-Tools CP-SAT discrete optimization to automate conflict-free timetable generation.*
 
@@ -10,11 +11,15 @@
   Your browser does not support the video tag.
 </video>
 
-> 🎥 **Direct Video Link**: [Watch Walkthrough Video](assets/screenshots/walk_through.mp4)
+
+
+https://github.com/user-attachments/assets/ac2664cd-e012-462b-a8ad-c5478139773a
+
+
 
 ---
 
-## 📌 Portfolio Overview (Apple Developer Academy Showcase)
+
 
 ### 1. One-to-Two Sentence Summary
 **Timely.AI** is an intelligent scheduling application built with Flutter and Python that transforms the tedious, multi-day task of academic timetable generation into an instantaneous, conflict-free automated process using constraint satisfaction algorithms (Google OR-Tools CP-SAT) paired with an intuitive, dark-mode mobile interface and on-device PDF compilation.
