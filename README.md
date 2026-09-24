@@ -3,6 +3,17 @@
 
 ---
 
+## 🎬 Project Walkthrough Video
+
+<video width="100%" controls autoplay muted loop>
+  <source src="assets/screenshots/walk_through.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+> 🎥 **Direct Video Link**: [Watch Walkthrough Video](assets/screenshots/walk_through.mp4)
+
+---
+
 ## 📌 Portfolio Overview (Apple Developer Academy Showcase)
 
 ### 1. One-to-Two Sentence Summary
