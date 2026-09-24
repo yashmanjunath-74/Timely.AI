@@ -1391,3 +1391,21 @@ Parsed JSON keys: ['instructors', 'rooms', 'days', 'timeslots', 'student_groups'
 2026-06-22 19:15:47.428168: Received 1 student groups.
 2026-06-22 19:15:47.428495: Created 2 tasks.
 2026-06-22 19:15:47.455697: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-09-24 09:50:46.075085 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-09-24 09:50:46.078365 ---
+2026-09-24 09:50:46.081322: Received 5 student groups.
+2026-09-24 09:50:46.088384: Created 113 tasks.
+2026-09-24 09:50:53.867453: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-09-24 09:53:24.354818 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-09-24 09:53:24.355639 ---
+2026-09-24 09:53:24.357413: Received 5 student groups.
+2026-09-24 09:53:24.365102: Created 113 tasks.
+2026-09-24 09:53:46.679423: Solver Status: 4 (Optimal=4, Feasible=2)
