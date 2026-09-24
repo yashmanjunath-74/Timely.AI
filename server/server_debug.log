@@ -1409,3 +1409,12 @@ Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 
 2026-09-24 09:53:24.357413: Received 5 student groups.
 2026-09-24 09:53:24.365102: Created 113 tasks.
 2026-09-24 09:53:46.679423: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-09-24 10:13:46.051435 - Request received
+Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-09-24 10:13:46.054744 ---
+2026-09-24 10:13:46.056209: Received 5 student groups.
+2026-09-24 10:13:46.068253: Created 113 tasks.
+2026-09-24 10:14:13.418271: Solver Status: 4 (Optimal=4, Feasible=2)
