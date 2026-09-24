@@ -1021,3 +1021,373 @@ Parsed JSON keys: ['instructors', 'courses', 'rooms', 'student_groups', 'days', 
 2026-01-15 10:18:46.876855: Received 5 student groups.
 2026-01-15 10:18:46.896851: Created 113 tasks.
 2026-01-15 10:19:06.884391: Solver Status: 4 (Optimal=4, Feasible=2)
+
+2026-06-22 19:03:55.848861 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:03:55.849408 ---
+2026-06-22 19:03:55.850990: Received 1 student groups.
+
+2026-06-22 19:03:55.853090 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:03:55.853747 ---
+2026-06-22 19:03:55.854330: Received 1 student groups.
+
+2026-06-22 19:03:55.856295 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:03:55.856608 ---
+2026-06-22 19:03:55.857272: Received 1 student groups.
+
+2026-06-22 19:05:28.175013 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'student_groups', 'courses', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:05:28.175424 ---
+2026-06-22 19:05:28.176335: Received 1 student groups.
+
+2026-06-22 19:05:28.180360 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'student_groups', 'courses', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:05:28.181154 ---
+2026-06-22 19:05:28.182697: Received 1 student groups.
+
+2026-06-22 19:05:28.185367 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'days', 'timeslots', 'student_groups', 'courses', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:05:28.186313 ---
+2026-06-22 19:05:28.187318: Received 1 student groups.
+
+2026-06-22 19:05:28.190337 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'days', 'timeslots', 'student_groups', 'courses', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:05:28.192042 ---
+2026-06-22 19:05:28.198909: Received 1 student groups.
+
+2026-06-22 19:05:28.203628 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:05:28.204961 ---
+2026-06-22 19:05:28.206524: Received 1 student groups.
+
+2026-06-22 19:05:28.214467 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:05:28.215065 ---
+2026-06-22 19:05:28.215790: Received 1 student groups.
+
+2026-06-22 19:05:28.217190 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:05:28.217467 ---
+2026-06-22 19:05:28.218078: Received 1 student groups.
+
+2026-06-22 19:05:28.219517 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:05:28.219814 ---
+2026-06-22 19:05:28.220418: Received 2 student groups.
+
+2026-06-22 19:05:28.221889 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:05:28.222157 ---
+2026-06-22 19:05:28.222727: Received 2 student groups.
+
+2026-06-22 19:05:28.223998 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:05:28.224321 ---
+2026-06-22 19:05:28.225162: Received 1 student groups.
+
+2026-06-22 19:05:28.227331 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:05:28.227694 ---
+2026-06-22 19:05:28.229291: Received 1 student groups.
+
+2026-06-22 19:05:28.231158 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:05:28.231595 ---
+2026-06-22 19:05:28.232679: Received 1 student groups.
+2026-06-22 19:05:28.233167: Scheduling Failed: Course 'Lab 1' requires a 2-hour lab (Any Time), but no consecutive slots exist starting at the preferred time (check breaks or timeslots).
+
+2026-06-22 19:05:28.234239 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'days', 'timeslots', 'student_groups', 'courses', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:05:28.234505 ---
+2026-06-22 19:05:28.235222: Received 1 student groups.
+2026-06-22 19:05:28.235600: Created 2 tasks.
+2026-06-22 19:05:28.258999: Solver Status: CpSolverStatus.INFEASIBLE (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:05:28.262988 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'days', 'timeslots', 'student_groups', 'courses', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:05:28.266309 ---
+2026-06-22 19:05:28.267699: Received 1 student groups.
+2026-06-22 19:05:28.269425: Created 2 tasks.
+2026-06-22 19:05:28.319945: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:06:38.880744 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'student_groups', 'courses', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:06:38.881096 ---
+2026-06-22 19:06:38.882010: Received 1 student groups.
+2026-06-22 19:06:38.882934: Created 2 tasks.
+2026-06-22 19:06:38.910122: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:06:38.911719 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'student_groups', 'courses', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:06:38.911997 ---
+2026-06-22 19:06:38.912686: Received 1 student groups.
+2026-06-22 19:06:38.913115: Created 1 tasks.
+2026-06-22 19:06:38.929614: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:06:38.937003 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'days', 'timeslots', 'student_groups', 'courses', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:06:38.937509 ---
+2026-06-22 19:06:38.938249: Received 1 student groups.
+2026-06-22 19:06:38.938838: Created 2 tasks.
+2026-06-22 19:06:38.962571: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:06:38.967785 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'days', 'timeslots', 'student_groups', 'courses', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:06:38.968389 ---
+2026-06-22 19:06:38.969232: Received 1 student groups.
+2026-06-22 19:06:38.969829: Created 2 tasks.
+2026-06-22 19:06:38.994369: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:06:39.002057 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:06:39.002785 ---
+2026-06-22 19:06:39.003851: Received 1 student groups.
+2026-06-22 19:06:39.004190: Created 2 tasks.
+2026-06-22 19:06:39.004902: Solver Status: CpSolverStatus.INFEASIBLE (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:06:39.006055 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:06:39.006316 ---
+2026-06-22 19:06:39.010135: Received 1 student groups.
+2026-06-22 19:06:39.010548: Created 2 tasks.
+2026-06-22 19:06:39.019641: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:06:39.021435 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:06:39.022084 ---
+2026-06-22 19:06:39.022788: Received 1 student groups.
+2026-06-22 19:06:39.023151: Created 2 tasks.
+2026-06-22 19:06:39.034278: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:06:39.036016 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:06:39.036369 ---
+2026-06-22 19:06:39.037170: Received 2 student groups.
+
+2026-06-22 19:06:39.039087 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:06:39.039385 ---
+2026-06-22 19:06:39.039873: Received 2 student groups.
+2026-06-22 19:06:39.040226: Created 2 tasks.
+2026-06-22 19:06:39.040911: Solver Status: CpSolverStatus.INFEASIBLE (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:06:39.042374 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:06:39.042649 ---
+2026-06-22 19:06:39.043114: Received 1 student groups.
+2026-06-22 19:06:39.043360: Created 1 tasks.
+2026-06-22 19:06:39.050559: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:06:39.052761 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:06:39.053328 ---
+2026-06-22 19:06:39.054616: Received 1 student groups.
+2026-06-22 19:06:39.055265: Created 2 tasks.
+2026-06-22 19:06:39.066332: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:06:39.068573 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:06:39.068920 ---
+2026-06-22 19:06:39.069806: Received 1 student groups.
+2026-06-22 19:06:39.070250: Scheduling Failed: Course 'Lab 1' requires a 2-hour lab (Any Time), but no consecutive slots exist starting at the preferred time (check breaks or timeslots).
+
+2026-06-22 19:06:39.071375 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'days', 'timeslots', 'student_groups', 'courses', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:06:39.071754 ---
+2026-06-22 19:06:39.072646: Received 1 student groups.
+2026-06-22 19:06:39.073021: Created 2 tasks.
+2026-06-22 19:06:39.073853: Solver Status: CpSolverStatus.INFEASIBLE (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:06:39.074805 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'days', 'timeslots', 'student_groups', 'courses', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:06:39.075101 ---
+2026-06-22 19:06:39.075671: Received 1 student groups.
+2026-06-22 19:06:39.075995: Created 2 tasks.
+2026-06-22 19:06:39.097774: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:15:47.227482 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'student_groups', 'courses', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:15:47.227826 ---
+2026-06-22 19:15:47.228759: Received 1 student groups.
+2026-06-22 19:15:47.229611: Created 2 tasks.
+2026-06-22 19:15:47.252661: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:15:47.256060 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'student_groups', 'courses', 'days', 'timeslots', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:15:47.256393 ---
+2026-06-22 19:15:47.256913: Received 1 student groups.
+2026-06-22 19:15:47.257321: Created 1 tasks.
+2026-06-22 19:15:47.277788: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:15:47.279494 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'days', 'timeslots', 'student_groups', 'courses', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:15:47.279889 ---
+2026-06-22 19:15:47.280551: Received 1 student groups.
+2026-06-22 19:15:47.280903: Created 2 tasks.
+2026-06-22 19:15:47.295467: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:15:47.296772 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'days', 'timeslots', 'student_groups', 'courses', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:15:47.297133 ---
+2026-06-22 19:15:47.297690: Received 1 student groups.
+2026-06-22 19:15:47.298081: Created 2 tasks.
+2026-06-22 19:15:47.309917: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:15:47.312123 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:15:47.312404 ---
+2026-06-22 19:15:47.313240: Received 1 student groups.
+2026-06-22 19:15:47.313970: Created 2 tasks.
+2026-06-22 19:15:47.314983: Solver Status: CpSolverStatus.INFEASIBLE (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:15:47.316373 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:15:47.316831 ---
+2026-06-22 19:15:47.321123: Received 1 student groups.
+2026-06-22 19:15:47.321513: Created 2 tasks.
+2026-06-22 19:15:47.341054: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:15:47.342549 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:15:47.342833 ---
+2026-06-22 19:15:47.343487: Received 1 student groups.
+2026-06-22 19:15:47.343779: Created 2 tasks.
+2026-06-22 19:15:47.357228: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:15:47.358732 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:15:47.359037 ---
+2026-06-22 19:15:47.359828: Received 2 student groups.
+
+2026-06-22 19:15:47.361538 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:15:47.361894 ---
+2026-06-22 19:15:47.362392: Received 2 student groups.
+2026-06-22 19:15:47.362699: Created 2 tasks.
+2026-06-22 19:15:47.363424: Solver Status: CpSolverStatus.INFEASIBLE (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:15:47.364877 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:15:47.365160 ---
+2026-06-22 19:15:47.365729: Received 1 student groups.
+2026-06-22 19:15:47.366177: Created 1 tasks.
+2026-06-22 19:15:47.391488: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:15:47.399367 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:15:47.402214 ---
+2026-06-22 19:15:47.406436: Received 1 student groups.
+2026-06-22 19:15:47.407330: Created 2 tasks.
+2026-06-22 19:15:47.418971: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:15:47.421044 - Request received
+Parsed JSON keys: ['courses', 'days', 'instructors', 'rooms', 'settings', 'student_groups', 'timeslots']
+
+
+--- NEW REQUEST 2026-06-22 19:15:47.421594 ---
+2026-06-22 19:15:47.422147: Received 1 student groups.
+2026-06-22 19:15:47.422453: Scheduling Failed: Course 'Lab 1' requires a 2-hour lab (Any Time), but no consecutive slots exist starting at the preferred time (check breaks or timeslots).
+
+2026-06-22 19:15:47.423833 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'days', 'timeslots', 'student_groups', 'courses', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:15:47.424258 ---
+2026-06-22 19:15:47.425188: Received 1 student groups.
+2026-06-22 19:15:47.425551: Created 2 tasks.
+2026-06-22 19:15:47.426418: Solver Status: CpSolverStatus.INFEASIBLE (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)
+
+2026-06-22 19:15:47.427387 - Request received
+Parsed JSON keys: ['instructors', 'rooms', 'days', 'timeslots', 'student_groups', 'courses', 'settings']
+
+
+--- NEW REQUEST 2026-06-22 19:15:47.427638 ---
+2026-06-22 19:15:47.428168: Received 1 student groups.
+2026-06-22 19:15:47.428495: Created 2 tasks.
+2026-06-22 19:15:47.455697: Solver Status: CpSolverStatus.OPTIMAL (Optimal=CpSolverStatus.OPTIMAL, Feasible=CpSolverStatus.FEASIBLE)

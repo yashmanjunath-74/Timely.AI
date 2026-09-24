@@ -282,11 +282,15 @@ def generate_timetable():
                 
                 for day in all_days:
                     group_day_avail = group.get('availability', {}).get(day, [])
+                    if not group_day_avail:
+                        group_day_avail = [1] * len(all_timeslots)
                     
                     # Compute union of instructor availability for this day
                     inst_union_avail = [0] * len(all_timeslots)
                     for inst in check_instructors:
                         inst_day_avail = inst.get('availability', {}).get(day, [])
+                        if not inst_day_avail:
+                            inst_day_avail = [1] * len(all_timeslots)
                         for i in range(min(len(inst_day_avail), len(all_timeslots))):
                             if inst_day_avail[i] == 1:
                                 inst_union_avail[i] = 1

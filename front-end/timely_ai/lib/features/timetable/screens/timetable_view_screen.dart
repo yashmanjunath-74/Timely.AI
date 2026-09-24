@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:timely_ai/features/PDF_creation/pdf_generation_service.dart';
 import 'package:timely_ai/features/data_management/controller/timetable_controller.dart';
-import 'package:timely_ai/models/StudentGroupModel.dart';
 import 'package:timely_ai/features/data_management/repository/timetable_repository.dart';
 import 'package:timely_ai/shared/widgets/glass_card.dart';
 import 'package:timely_ai/shared/widgets/saas_scaffold.dart';
+import 'package:timely_ai/features/timetable/screens/manual_edit_timetable_screen.dart';
+import 'package:timely_ai/models/CourseModel.dart';
+import 'package:timely_ai/models/RoomModel.dart';
 
 class TimetableViewScreen extends ConsumerStatefulWidget {
   final List<Map<String, dynamic>> schedule;
@@ -13,12 +15,21 @@ class TimetableViewScreen extends ConsumerStatefulWidget {
   const TimetableViewScreen({super.key, required this.schedule});
 
   @override
-  @override
   ConsumerState<TimetableViewScreen> createState() =>
       _TimetableViewScreenState();
 }
 
 class _TimetableViewScreenState extends ConsumerState<TimetableViewScreen> {
+  late List<Map<String, dynamic>> _currentSchedule;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentSchedule = List<Map<String, dynamic>>.from(
+      widget.schedule.map((m) => Map<String, dynamic>.from(m)),
+    );
+  }
+
   String _filterType = 'Show All'; // Show All, Instructor, Room, Student Group
   String? _selectedFilterValue;
   final List<String> _days = [
@@ -77,7 +88,7 @@ class _TimetableViewScreenState extends ConsumerState<TimetableViewScreen> {
                   try {
                     await ref
                         .read(timetableRepositoryProvider)
-                        .saveTimetable(widget.schedule, name);
+                        .saveTimetable(_currentSchedule, name);
                     if (context.mounted) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
@@ -107,17 +118,18 @@ class _TimetableViewScreenState extends ConsumerState<TimetableViewScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final homeState = ref.watch(homeControllerProvider);
     // 1. Extract unique values for filters
     final instructors =
-        widget.schedule.map((e) => e['instructor'] as String).toSet().toList()
+        _currentSchedule.map((e) => e['instructor'] as String).toSet().toList()
           ..sort();
-    final rooms =
-        widget.schedule.map((e) => e['room'] as String).toSet().toList()
-          ..sort();
+    final rooms = homeState.rooms.isNotEmpty
+        ? (homeState.rooms.map((r) => r.id).toList()..sort())
+        : (_currentSchedule.map((e) => e['room'] as String).toSet().toList()..sort());
 
     // For groups, we need to handle the comma-separated strings
     final Set<String> uniqueGroups = {};
-    for (var item in widget.schedule) {
+    for (var item in _currentSchedule) {
       final groupStr = item['group'] as String;
       if (groupStr.contains(',')) {
         final parts = groupStr.split(',').map((e) => e.trim()).toList();
@@ -129,10 +141,10 @@ class _TimetableViewScreenState extends ConsumerState<TimetableViewScreen> {
     final groups = uniqueGroups.toList()..sort();
 
     // 2. Filter the schedule
-    List<Map<String, dynamic>> filteredSchedule = widget.schedule;
+    List<Map<String, dynamic>> filteredSchedule = _currentSchedule;
     if (_filterType != 'Show All' && _selectedFilterValue != null) {
       if (_selectedFilterValue != 'All') {
-        filteredSchedule = widget.schedule.where((item) {
+        filteredSchedule = _currentSchedule.where((item) {
           if (_filterType == 'Instructor') {
             return item['instructor'] == _selectedFilterValue;
           } else if (_filterType == 'Room') {
@@ -150,6 +162,70 @@ class _TimetableViewScreenState extends ConsumerState<TimetableViewScreen> {
     return SaaSScaffold(
       title: 'Generated Timetable',
       actions: [
+        Padding(
+          padding: const EdgeInsets.only(right: 8.0),
+          child: ElevatedButton.icon(
+            onPressed: () async {
+              final List<Room> displayRooms = homeState.rooms.isNotEmpty
+                  ? homeState.rooms
+                  : _currentSchedule.map((e) => e['room'] as String).toSet().map((roomId) {
+                      final isLab = _currentSchedule.any((e) => e['room'] == roomId && e['type'] == 'lab');
+                      return Room(
+                        id: roomId,
+                        capacity: 50,
+                        type: isLab ? 'Computer Lab' : 'Classroom',
+                      );
+                    }).toList();
+
+              final List<Course> displayCourses = homeState.courses.isNotEmpty
+                  ? homeState.courses
+                  : _currentSchedule.map((e) => e['courseId'] as String).toSet().map((courseId) {
+                      final item = _currentSchedule.firstWhere((e) => e['courseId'] == courseId);
+                      final isLab = item['type'] == 'lab';
+                      return Course(
+                        id: courseId,
+                        name: item['course'] as String,
+                        lectureHours: isLab ? 0 : 1,
+                        labHours: isLab ? 2 : 0,
+                        qualifiedInstructors: [item['instructor'] as String],
+                      );
+                    }).toList();
+
+              final newSchedule =
+                  await Navigator.push<List<Map<String, dynamic>>>(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          ManualEditTimetableScreen(
+                            schedule: _currentSchedule,
+                            rooms: displayRooms,
+                            courses: displayCourses,
+                          ),
+                    ),
+                  );
+              if (newSchedule != null) {
+                setState(() {
+                  _currentSchedule = newSchedule;
+                });
+              }
+            },
+            icon: const Icon(Icons.edit, size: 18, color: Colors.black),
+            label: const Text(
+              'Edit',
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            ),
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.only(right: 8.0),
           child: IconButton(
@@ -171,6 +247,15 @@ class _TimetableViewScreenState extends ConsumerState<TimetableViewScreen> {
                   courses: homeState.courses,
                   timeSlots: homeState.timeslots,
                   facultyName: _selectedFilterValue!,
+                );
+              } else if (_filterType == 'Instructor' &&
+                  _selectedFilterValue == 'All') {
+                // Generate a PDF with all faculty timetables
+                PdfGenerator.generateAllFacultyPdf(
+                  schedule: _currentSchedule, // Use full unmodified schedule
+                  courses: homeState.courses,
+                  timeSlots: homeState.timeslots,
+                  facultyNames: instructors, // All instructors
                 );
               } else if (_filterType == 'Student Group' &&
                   _selectedFilterValue != null &&
@@ -202,6 +287,31 @@ class _TimetableViewScreenState extends ConsumerState<TimetableViewScreen> {
                   studentGroupName: _selectedFilterValue!,
                   section: section,
                   preferredRoom: preferredRoom,
+                );
+              } else if (_filterType == 'Student Group' &&
+                  _selectedFilterValue == 'All') {
+                PdfGenerator.generateAllStudentPdf(
+                  schedule: _currentSchedule,
+                  courses: homeState.courses,
+                  timeSlots: homeState.timeslots,
+                  studentGroupNames: groups,
+                );
+              } else if (_filterType == 'Room' &&
+                  _selectedFilterValue != null &&
+                  _selectedFilterValue != 'All') {
+                PdfGenerator.generateRoomPdf(
+                  schedule: filteredSchedule,
+                  courses: homeState.courses,
+                  timeSlots: homeState.timeslots,
+                  roomName: _selectedFilterValue!,
+                );
+              } else if (_filterType == 'Room' &&
+                  _selectedFilterValue == 'All') {
+                PdfGenerator.generateAllRoomPdf(
+                  schedule: _currentSchedule,
+                  courses: homeState.courses,
+                  timeSlots: homeState.timeslots,
+                  roomNames: rooms,
                 );
               } else {
                 PdfGenerator.generateAndPreview(
@@ -258,7 +368,7 @@ class _TimetableViewScreenState extends ConsumerState<TimetableViewScreen> {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 12),
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.1),
+                          color: Colors.white.withValues(alpha: 0.1),
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(color: Colors.white24),
                         ),
@@ -318,7 +428,7 @@ class _TimetableViewScreenState extends ConsumerState<TimetableViewScreen> {
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 12),
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.1),
+                            color: Colors.white.withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(color: Colors.white24),
                           ),
@@ -409,7 +519,7 @@ class _TimetableViewScreenState extends ConsumerState<TimetableViewScreen> {
                                   height: 40,
                                   alignment: Alignment.center,
                                   decoration: BoxDecoration(
-                                    color: Colors.white.withOpacity(0.1),
+                                    color: Colors.white.withValues(alpha: 0.1),
                                     borderRadius: BorderRadius.circular(8),
                                     border: Border.all(color: Colors.white24),
                                   ),
@@ -438,7 +548,7 @@ class _TimetableViewScreenState extends ConsumerState<TimetableViewScreen> {
                                       height: 130,
                                       margin: const EdgeInsets.only(bottom: 8),
                                       decoration: BoxDecoration(
-                                        color: Colors.white.withOpacity(0.05),
+                                        color: Colors.white.withValues(alpha: 0.05),
                                         borderRadius: BorderRadius.circular(8),
                                         border: Border.all(
                                           color: Colors.white10,
@@ -455,21 +565,21 @@ class _TimetableViewScreenState extends ConsumerState<TimetableViewScreen> {
                                     padding: const EdgeInsets.all(12),
                                     decoration: BoxDecoration(
                                       color: isLab
-                                          ? const Color(0xFF7F00FF).withOpacity(
-                                              0.2,
+                                          ? const Color(0xFF7F00FF).withValues(
+                                              alpha: 0.2,
                                             ) // Neon Violet
                                           : const Color(
                                               0xFF00C6FF,
-                                            ).withOpacity(0.2), // Neon Cyan
+                                            ).withValues(alpha: 0.2), // Neon Cyan
                                       borderRadius: BorderRadius.circular(8),
                                       border: Border.all(
                                         color: isLab
                                             ? const Color(
                                                 0xFF7F00FF,
-                                              ).withOpacity(0.5)
+                                              ).withValues(alpha: 0.5)
                                             : const Color(
                                                 0xFF00C6FF,
-                                              ).withOpacity(0.5),
+                                              ).withValues(alpha: 0.5),
                                       ),
                                     ),
                                     child: Column(
